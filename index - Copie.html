@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<!-- **
+ * @author Frank Donald Fontcha
+ * @copyright 2016 ZoneStyle
+ */ -->
+<html class="scroll_noir">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ZoneStyle - Framework CSS3</title>
+        <link href="css/zonestyle.min.css" type="text/css" rel="stylesheet"/>
+        <link href="font/style.min.css" type="text/css" rel="stylesheet"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8"/>
+    </head>
+    <body class="extra_fixe-oblique">
+        <!-- entete zonestyle -->
+        <div class="barre_navigation transparence wow shake">
+            <div class="barre_cover"></div>
+            <div class="barre_logo">
+                <a href="">ZONESTYLE</a>
+            </div>
+            <div class="barre_menu mn_boutton">
+                <ul class="zs_menu">
+                    <li class="element_menu actif"><a href="#" class="lien_menu lien_effet">preview</a></li>
+                    <li class="element_menu"><a href="./zs_plus/getting_started/index.html" class="lien_menu lien_effet">getting started</a></li>
+                    <li class="element_menu"><a href="" class="lien_menu lien_effet">contact us</a></li>
+                    <li class="element_menu"><a href="" class="lien_menu lien_effet">about</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- -- / ----- -->
+        <div class="contenaire fond_blanc border_no rond_no wow fadeInUp">
+            <img src="img/1 - copie.jpg" class="img_responsive" style="height: 50%;" alt="imageuml"/>
+            <div class="superpose_cover"></div>
+            <div class="superpose">
+                <div class="zs_colonnes">
+                    <div class="col-12" style="margin-top: 7%;">
+                        <h1 class="titre">Bienvenue sur zonestyle</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contenaire fond_blanc border_no rond_no wow fadeInUp">
+            <p class="titre">grid | colonnes</p>
+
+            test grand_contenaire. tetettetettet tettttttt
+            <div class="zs_colonnes">
+                <div class="col-4 my-6 pt-12 extra">
+                    test col-4 my-6 pt-12
+                </div>
+            </div>
+        </div>
+
+        <div class="contenaire fond_blanc border_no rond_no">
+            <div class="zs_colonnes fond_blanc">
+                <div class="col-4 my-6 pt-12 fond_blanc">
+                    test col-4 my-6 pt-12
+                </div>
+                <div class="col-4 my-6 pt-12 fond_blanc">
+                    test col-4 my-6 pt-12
+                </div>
+                <div class="col-3 my-6 st-1 pt-12 fond_blanc">
+                    test col-3 st-1 my-6 pt-12
+                </div>
+                <div class="col-12 my-12 pt-12 extra">
+                    test col-12 my-12 pt-12
+                </div>
+                <div class="col-5 my-6 pt-12 fond_blanc">
+                    test col-5 my-6 pt-12
+                </div>
+                <div class="col-4 my-6 st-2 pt-12 extra">
+                    test col-4 st-2 my-6 pt-12
+                </div>
+                <div class="col-1 my-6 pt-12 fond_blanc">
+                    test col-1 my-6 pt-12
+                </div>
+            </div>
+        </div>
+
+        <div class="contenaire fond_blanc border_no rond_bas wow fadeInUp">
+            <div class="colonnes_flexible fond_blanc">            
+                <div class="col-1 my-1 pt-12 fond_blanc">
+                    test col-1
+                </div>
+                <div class="col-3 my-3 pt-12 fond_blanc">
+                    test col-3
+                </div>
+                <div class="col-5 my-5 pt-12 extra">
+                    test col-5
+                </div>
+                <div class="col-2 my-2 st-1 st-my-1 pt-12  fond_blanc">
+                    test col-2 st-1
+                </div>
+            </div>
+
+            <div class="colonnes_flexible">            
+                <div class="col fond_blanc">
+                    test col
+                </div>
+                <div class="col extra">
+                    test col
+                </div>
+                <div class="col fond_blanc">
+                    test col
+                </div>
+                <div class="col st-1 st-my-1  fond_blanc">
+                    test col st-1
+                </div>
+            </div>
+        </div>
+
+        <div class="contenaire">
+            <p class="titre">zonestyle boutton</p>
+            <button class="zs_boutton bt_effet-g wow bounce">boutton defaut</button>
+            <button class="zs_boutton bt_danger bt_effet wow bounce">boutton danger</button>
+            <button class="zs_boutton bt_infos bt_effet wow bounce">boutton infos</button>
+            <button class="zs_boutton bt_succes bt_effet wow bounce">boutton succes</button>
+            <button class="zs_boutton bt_alert bt_effet wow bounce">boutton alert</button>
+        </div>
+
+        <div class="contenaire">
+            <button class="zs_boutton bt_arrondis bt_effet-g gd_bt wow bounce">boutton arrondis</button>
+            <button class="zs_boutton bt_danger bt_arrondis bt_effet-g wow bounce">boutton danger</button>
+            <button class="zs_boutton bt_infos bt_arrondis bt_effet-g gd_bt wow bounce">boutton infos</button>
+            <button class="zs_boutton bt_succes bt_arrondis bt_effet-g wow bounce">boutton succes</button>
+            <button class="zs_boutton bt_alert bt_arrondis bt_effet-g wow bounce">boutton alert</button>
+        </div>
+
+        <div class="contenaire">
+            <button class="zs_boutton bt_rond bt_effet wow bounce"><i class="icone icon_book"></i></button>
+            <button class="zs_boutton bt_danger bt_rond bt_effet-g wow bounce"><i class="icone icon_image"></i></button>
+            <button class="zs_boutton bt_infos bt_rond bt_effet-g wow bounce"><i class="icone icon_pencil"></i></button>
+            <button class="zs_boutton bt_succes bt_rond bt_effet-g wow bounce"><i class="icone icon_profile"></i></button>
+            <button class="zs_boutton bt_alert bt_rond bt_effet-g wow bounce"><i class="icone icon_link_alt"></i></button>
+            <button class="zs_boutton bt_danger bt_rond wow bounce"><i class="icone icon_book"></i></button>
+            <button class="zs_boutton bt_infos bt_rond wow bounce"><i class="icone icon_pencil"></i></button>
+            <button class="zs_boutton bt_succes bt_rond bt_effet-g wow bounce"><i class="icone icon_profile"></i></button>
+            <button class="zs_boutton bt_alert bt_rond wow bounce"><i class="icone icon_pin_alt"></i></button>
+            <button class="zs_boutton bt_infos bt_rond bt_effet-g wow bounce"><i class="icone icon_pencil"></i></button>
+
+            <div class="zs_colonnes centrer">
+                <p class="titre">Socials bouttons</p>
+                <button class="zs_boutton bt_fb bt_rond bt_effet-g wow bounce"><i class="icone social_facebook"></i></button>
+                <button class="zs_boutton bt_gplus bt_rond wow bounce"><i class="icone social_googleplus"></i></button>
+                <button class="zs_boutton bt_youtube bt_rond wow bounce bt_effet-g"><i class="icone social_youtube"></i></button>
+                <button class="zs_boutton bt_twitter bt_rond wow bounce"><i class="icone social_twitter"></i></button>
+                <button class="zs_boutton bt_pinterest bt_rond bt_effet-g wow bounce"><i class="icone social_pinterest"></i></button>
+
+                <button class="zs_boutton bt_fb bt_effet wow bounce"><i class="icone social_facebook"></i></button>
+                <button class="zs_boutton bt_gplus gd_bt wow bounce"><i class="icone social_googleplus"></i></button>
+                <button class="zs_boutton bt_youtube bt_effet wow bounce"><i class="icone social_youtube"></i></button>
+                <button class="zs_boutton bt_twitter gd_bt wow bounce"><i class="icone social_twitter"></i></button>
+                <button class="zs_boutton bt_pinterest bt_effet wow bounce"><i class="icone social_pinterest"></i></button>
+            </div>
+            <div class="zs_colonnes">
+                <button class="zs_boutton bt_pinterest bt_arrondis wow bounce"><i class="icone social_pinterest_circle"></i>pinterest</button>
+                <button class="zs_boutton bt_fb bt_arrondis bt_effet-g gd_bt wow bounce"><i class="icone social_facebook_circle"></i>facebook</button>
+                <button class="zs_boutton bt_gplus bt_arrondis wow bounce"><i class="icone social_googleplus_circle"></i>google plus</button>
+                <button class="zs_boutton bt_youtube bt_arrondis bt_effet-g gd_bt wow bounce"><i class="icone social_youtube_circle"></i>youtube</button>
+                <button class="zs_boutton bt_twitter bt_arrondis wow bounce"><i class="icone social_twitter_circle"></i>twitter</button>
+                <button class="zs_boutton bt_instagram bt_arrondis bt_effet-g wow bounce"><i class="icone  social_instagram_circle"></i>instagram</button>
+            </div>
+        </div>
+
+        <div class="contenaire extra slideInUp">
+            <p class="titre">Socials Share bouttons -- click to open</p>
+            <div class="zs_share">
+                <button class="zs_boutton bt_share adroite"><i class="icone  social_share"></i></button>
+                <ul class="share_items sh_droit">
+                    <li><a><button class="zs_boutton bt_pinterest bt_round"><i class="icone social_pinterest"></i></button></a></li>
+                    <li><a><button class="zs_boutton bt_fb bt_round bt_effet-g"><i class="icone social_facebook"></i></button></a></li>
+                    <li><a><button class="zs_boutton bt_gplus bt_round"><i class="icone social_googleplus"></i></button></a></li>
+                    <li><a><button class="zs_boutton bt_youtube bt_round bt_effet-g"><i class="icone social_youtube"></i></button></a></li>
+                </ul>
+            </div>
+
+            <div class="zs_share slideInUp">
+                <button class="zs_boutton bt_share agauche"><i class="icone social_share"></i></button>
+                <ul class="share_items sh_gauche sh_fixe">
+                    <li><a><button class="zs_boutton bt_pinterest bt_round"><i class="icone social_pinterest"></i></button></a></li>
+                    <li><a><button class="zs_boutton bt_fb bt_round bt_effet-g"><i class="icone social_facebook"></i></button></a></li>
+                    <li><a><button class="zs_boutton bt_gplus bt_round"><i class="icone social_googleplus"></i></button></a></li>
+                    <li><a><button class="zs_boutton bt_youtube bt_round bt_effet-g"><i class="icone social_youtube"></i></button></a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="contenaire">
+            <p class="titre">zonestyle cards</p>
+            <div class="colonnes_flexible wow slideInUp">
+                <div class="col-4 my-4 pt-12 fond_blanc border_no">
+                    <div class="zs_cards">
+                        <div class="cards_part_up">
+                            start learning
+                        </div>
+                        <div class="cards_image">
+                            <img src="img/2.jpg" class="img_responsive" alt="image2"/>
+                        </div>
+                        <div class="cards_part_down">
+                            <p>kmqkjfdmj mlkqkjdmqd mqjkddqmdl mmklqjdmlkkqsldq kmjqdkjqmd kmjqkmlq</p>
+                            <button class="zs_boutton bt_infos bt_effet bt_arrondis">boutton infos</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 my-4 pt-12 fond_blanc border_no">
+                    <div class="zs_cards wow slideInUp">
+                        <div class="cards_part_up">
+                            faites vos débuts
+                        </div>
+                        <div class="cards_image">
+                            <img src="img/1.jpg" class="img_responsive" alt="image1"/>
+                        </div>
+                        <div class="cards_part_down">
+                            <p>kmqkjfdmj mlkqkjdmqd mqjkddqmdl mmklqjdmlkkqsldq kmjqdkjqmd kmjqkmlq</p>
+
+                            <button class="zs_boutton bt_fb bt_effet"><i class="icone social_facebook"></i></button>
+                            <button class="zs_boutton bt_gplus gd_bt"><i class="icone social_googleplus"></i></button>
+                            <button class="zs_boutton bt_youtube bt_effet"><i class="icone social_youtube"></i></button>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 my-4 pt-12 fond_blanc border_no">
+                    <div class="zs_cards wow slideInUp">
+                        <div class="cards_part_up">
+                            juste pour vous
+                        </div>
+                        <div class="cards_image">
+                            <img src="img/3.jpg" class="img_responsive" alt="image3"/>
+                        </div>
+                        <div class="cards_part_down">
+                            <p>kmqkjfdmj mlkqkjdmqd mqjkddqmdl mmklqjdmlkkqsldq kmjqdkjqmd kmjqkmlq</p>
+
+                            <button class="zs_boutton bt_fb bt_arrondis bt_effet-g"><i class="icone social_facebook_circle"></i>facebook</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contenaire extra">
+            <p class="titre">zs_cards-img</p>
+            <div class="colonnes_flexible wow slideInUp">
+                <div class="col">
+                    <div class="zs_cards-img">
+                        <div class="cards_image fond_bleu">
+                            <div class="image_fond"></div>
+                            <img src="img/3.jpg" class="img_responsive" alt="image3"/>
+                            <div class="image_texte">
+                                <p>kmqkjfdmj mlkqkjdmqd mqjkddqmdl mmklqjdmlkkqsldq kmjqdkjqmd kmjqkmlq</p>
+
+                                <button class="zs_boutton bt_fb bt_arrondis bt_effet-g"><i class="icone social_facebook_circle"></i>facebook</button>
+                            </div>
+                        </div>
+                        <div class="img_desc">
+                            <button class="zs_boutton bt_infos bt_rond bt_effet-g"><i class="icone icon_pencil"></i></button>
+                            <button class="zs_boutton bt_succes bt_rond bt_effet-g"><i class="icone icon_profile"></i></button>
+                            <button class="zs_boutton bt_alert bt_rond bt_effet-g"><i class="icone icon_link_alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="zs_cards-img">
+                        <div class="cards_image fond_rouge">
+                            <div class="image_fond"></div>
+                            <img src="img/1.jpg" class="img_responsive" alt="image1"/>
+                            <div class="image_texte">
+                                <p>kmqkjfdmj mlkqkjdmqd mqjkddqmdl mmklqjdmlkkqsldq kmjqdkjqmd kmjqkmlq</p>
+
+                                <button class="zs_boutton bt_youtube bt_arrondis bt_effet-g"><i class="icone social_youtube_circle"></i>youtube</button>
+                            </div>
+                        </div>
+                        <div class="img_desc">
+                            <button class="zs_boutton bt_infos bt_rond bt_effet-g"><i class="icone icon_pencil"></i></button>
+                            <button class="zs_boutton bt_succes bt_rond bt_effet-g"><i class="icone icon_profile"></i></button>
+                            <button class="zs_boutton bt_alert bt_rond bt_effet-g"><i class="icone icon_link_alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="zs_cards-img">
+                        <div class="cards_image fond_vert">
+                            <div class="image_fond"></div>
+                            <img src="img/2.jpg" class="img_responsive" alt="image2"/>
+                            <div class="image_texte">
+                                <p>kmqkjfdmj mlkqkjdmqd mqjkddqmdl mmklqjdmlkkqsldq kmjqdkjqmd kmjqkmlq</p>
+                                <button class="zs_boutton bt_fb bt_arrondis bt_effet-g"><i class="icone social_facebook_circle"></i>facebook</button>
+                            </div>
+                        </div>
+                        <div class="img_desc">
+                            <button class="zs_boutton bt_infos bt_rond bt_effet-g"><i class="icone icon_pencil"></i></button>
+                            <button class="zs_boutton bt_succes bt_rond bt_effet-g"><i class="icone icon_profile"></i></button>
+                            <button class="zs_boutton bt_alert bt_rond bt_effet-g"><i class="icone icon_link_alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contenaire">
+            <div class="zs_colonnes wow fadeInUp">
+                <p class="titre">Alerte au click</p>
+                <div class="col-3 my-4 pt-12">
+                    <div class="alert">
+                        <button class="zs_boutton bt_alert_open bt_arrondis bt_effet-g"><i class="icone icon_pencil"></i>afficher</button>
+                        <div class="alert_mssg">
+                            <p>kmqkjfdmj mlkqkjdmqd mqjkddqmdl mmklqjdmlkkqsldq kmjqdkjqmd kmjqkmlq</p>
+                        </div>
+                    </div>
+                    <div class="alert alert_danger">
+                        <button class="zs_boutton bt_alert_open bt_danger bt_arrondis bt_effet-g"><i class="icone  icon_error-circle_alt"></i>afficher</button>
+                        <div class="alert_mssg">
+                            <p>kmqkjfdmj mlkqkjdmqd mqjkddqmdl mmklqjdmlkkqsldq kmjqdkjqmd kmjqkmlq</p>
+                        </div>
+                    </div>
+                    <div class="alert alert_infos">
+                        <button class="zs_boutton bt_alert_open bt_infos bt_arrondis bt_effet-g"><i class="icone icon_info_alt"></i>afficher</button>
+                        <div class="alert_mssg">
+                            <p>kmqkjfdmj mlkqkjdmqd mqjkddqmdl mmklqjdmlkkqsldq kmjqdkjqmd kmjqkmlq</p>
+                        </div>
+                    </div>
+                    <div class=" alert alert_succes">
+                        <button class="zs_boutton bt_alert_open bt_succes bt_arrondis bt_effet-g"><i class="icone icon_check"></i>afficher</button>
+                        <div class="alert_mssg">
+                            <p>kmqkjfdmj mlkqkjdmqd mqjkddqmdl mmklqjdmlkkqsldq kmjqdkjqmd kmjqkmlq</p>
+                        </div>
+                    </div>
+                    <div class="alert alert_alert">
+                        <button class="zs_boutton bt_alert_open bt_alert bt_arrondis bt_effet-g"><i class="icone icon_error-triangle_alt"></i>afficher</button>
+                        <div class="alert_mssg">
+                            <p>kmqkjfdmj mlkqkjdmqd mqjkddqmdl mmklqjdmlkkqsldq kmjqdkjqmd kmjqkmlq</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-9 my-8 pt-12">
+                    <p class="titre">zone d'alerte</p>
+                    <div class="zs_alert alert_infos">
+                        <div class="alert_indicator">
+                            <i class="icone icon_info_alt"></i>
+                        </div>
+                        <div class="alert_contenu fond_blanc">
+                            qldkosj kmqkjfdmj mlkqkjdmqd mqjkddqmdl mmklqjdmlkkqsldq kmjqdkjqmd kmjqkmlq kmqkjfdmj mlkqkjdmqd mqjkddqmdl mmklqjdmlkkqsldq kmjqdkjqmd kmjqkmlq kmqkjfdmj mlkqkjdmqd mqjkddqmdl mmklqjdmlkkqsldq kmjqdkjqmd kmjqkmlq
+                        </div>
+                        <div class="alert_close">
+                            <i class="icone icon_close"></i>
+                        </div>
+                    </div>
+
+                    <div class="zs_alert alert_succes">
+                        <div class="alert_indicator">
+                            <i class="icone icon_check_alt2"></i>
+                        </div>
+                        <div class="alert_contenu fond_blanc">
+                            qldkosj kmqkjfdmj mlkqkjdmqd mqjkddqmdl mmklqjdmlkkqsldq kmjqdkjqmd kmjqkmlq kmqkjfdmj mlkqkjdmqd mqjkddqmdl mm
+                        </div>
+                        <div class="alert_close">
+                            <i class="icone icon_close"></i>
+                        </div>
+                    </div>
+
+                    <div class="zs_alert alert_alert">
+                        <div class="alert_indicator">
+                            <i class="icone icon_error-triangle_alt"></i>
+                        </div>
+                        <div class="alert_contenu fond_blanc">
+                            qldkosj kmqkjfdmj mlkqkjdmqd mqjkddqmdl mmklqjdmlkkqsldq kmjqdkjqmd kmjqkml
+                        </div>
+                        <div class="alert_close">
+                            <i class="icone icon_close"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contenaire extra">
+            <p class="titre">pagination</p>
+            <div class="zs_colonnes">
+                <div class="col-4 my-4 pt-12">
+                    <div class="pagination pg_rond">
+                        <a href=""><button class="lien_pg"><i class="icone arrow_carrot-2left"></i></button></a>
+                        <a href=""><button class="lien_pg">1</button></a>
+                        <a href=""><button class="lien_pg">2</button></a>
+                        <a href=""><button class="lien_pg">...</button></a>
+                        <a href=""><button class="lien_pg">4</button></a>
+                        <a href=""><button class="lien_pg">5</button></a>
+                        <a href=""><button class="lien_pg"><i class="icone arrow_carrot-2right"></i></button></a>
+                    </div>
+                </div>
+
+                <div class="col-4 my-4 pt-12">
+                    <div class="pagination">
+                        <a href="" class="lien_pg"><i class="icone arrow_carrot-2left"></i></a>
+                        <a href="" class="lien_pg">1</a>
+                        <a href="" class="lien_pg">2</a>
+                        <a href="" class="lien_pg">...</a>
+                        <a href="" class="lien_pg">4</a>
+                        <a href="" class="lien_pg">5</a>
+                        <a href="" class="lien_pg"><i class="icone arrow_carrot-2right"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-4 my-4 pt-12">
+                    <div class="pagination pg_arrondis">
+                        <a href=""><button class="lien_pg"><i class="icone arrow_carrot-2left"></i></button></a>
+                        <a href=""><button class="lien_pg">1</button></a>
+                        <a href=""><button class="lien_pg">2</button></a>
+                        <a href=""><button class="lien_pg">...</button></a>
+                        <a href=""><button class="lien_pg">4</button></a>
+                        <a href=""><button class="lien_pg">5</button></a>
+                        <a href=""><button class="lien_pg"><i class="icone arrow_carrot-2right"></i></button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contenaire">
+            <p class="titre">Dropdown menu déroulant</p>
+
+            <div class="bt_deroulant">
+                <a href=""><button class="zs_boutton bt_succes bt_effet">bt deroule</button></a><button class="bt_deroule bt_succes"><i class="icone arrow_triangle-down"></i></button>
+                <ul class="groupe_element">
+                    <li><a href="" class="btd_element">kqsllq lqsdkjqlsd </a></li>
+                    <li><a href="" class="btd_element">kqsllq lqsdkjqlsd_kqsllq</a></li>
+                    <li><a href="" class="btd_element">kqsllq lqsdkjqlsd </a></li>
+                    <li><a href="" class="btd_element">kqsllq lqsdkjqlsd kqsllq</a></li>
+                </ul>
+            </div>
+
+            <div class="bt_deroulant">
+                <a href=""><button class="zs_boutton bt_infos bt_effet gd_bt">bt deroule</button></a><button class="gd_bt bt_deroule bt_infos"><i class="icone arrow_triangle-down"></i></button>
+                <ul class="groupe_element">
+                    <li><a href="" class="btd_element">kqsllq lqsdkjqlsd </a></li>
+                    <li><a href="" class="btd_element">kqsllq lqsdkjqlsd </a></li>
+                    <li><a href="" class="btd_element">kqsllq lqsdkjqlsd </a></li>
+                    <li><a href="" class="btd_element">kqsllq lqsdkjqlsd </a></li>
+                </ul>
+            </div>
+
+            <div class="bt_deroulant btd_rond">
+                <a href=""><button class="zs_boutton bt_infos bt_effet-g gd_bt">bt deroule</button></a><button class="gd_bt bt_deroule bt_infos"><i class="icone arrow_triangle-down"></i></button>
+                <ul class="groupe_element">
+                    <li><a href="" class="btd_element">kqsllq lqsdkjqlsd </a></li>
+                    <li><a href="" class="btd_element">kqsllq lqsdkjqlsd </a></li>
+                    <li><a href="" class="btd_element">kqsllq lqsdkjqlsd </a></li>
+                    <li><a href="" class="btd_element">kqsllq lqsdkjqlsd </a></li>
+                </ul>
+            </div>
+
+            <div class="bt_deroulant btd_rond">
+                <a href=""><button class="zs_boutton bt_alert bt_effet-g">bt deroule</button></a><button class="bt_deroule bt_alert"><i class="icone arrow_triangle-down"></i></button>
+                <ul class="groupe_element">
+                    <li><a href="" class="btd_element">kqsllq lqsdkjqlsd kqsllq</a></li>
+                    <li><a href="" class="btd_element">kqsllq lqsdkjqlsd_kqsllq</a></li>
+                    <li><a href="" class="btd_element">kqsllq lqsdkjqlsd kqsllq</a></li>
+                    <li><a href="" class="btd_element">kqsllq lqsdkjqlsd kqsllq</a></li>
+                </ul>
+            </div>
+
+            <div class="zs_colonnes">
+                <p class="titre">menu déroulant</p>
+                <div class="col-4 my-4 pt-12">
+                    <div class="menu_deroulant">
+                        <div class="menu_deroule"><a href="" class="mnd_element">kqsllq lqsdkjqlsd 1</a></div>
+                        <div class="menu_deroule mnd_deroule">kqsllq lqsdkjqlsd 2 <i class="carrot icone arrow_triangle-down"></i>
+                            <div class="groupe_element">
+                                <a href="" class="mnd_element">kqsllq lqsdkjqlsd kqsllq</a>
+                                <a href="" class="mnd_element">kqsllq lqsdkjqlsd_kqsllq</a>
+                                <a href="" class="mnd_element">kqsllq lqsdkjqlsd kqsllq</a>
+                                <a href="" class="mnd_element">kqsllq lqsdkjqlsd kqsllq</a>
+                            </div>
+                        </div>
+                        <div class="menu_deroule"><a href="" class="mnd_element">kqsllq lqsdkjqlsd 3 </a></div>
+                        <div class="menu_deroule mnd_deroule">kqsllq lqsdkjqlsd 4 <i class="carrot icone arrow_triangle-down"></i>
+                            <div class="groupe_element">
+                                <a href="" class="mnd_element">kqsllq lqsdkjqlsd kqsllq</a>
+                                <a href="" class="mnd_element">kqsllq lqsdkjqlsd_kqsllq</a>
+                                <a href="" class="mnd_element">kqsllq lqsdkjqlsd kqsllq</a>
+                                <a href="" class="mnd_element">kqsllq lqsdkjqlsd kqsllq</a>
+                            </div>
+                        </div>
+                        <div class="menu_deroule"><a href="" class="mnd_element">kqsllq lqsdkjqlsd 3 </a></div>
+                        <div class="menu_deroule"><a href="" class="mnd_element">kqsllq lqsdkjqlsd 3 </a></div>
+                    </div>
+                </div>
+
+                <div class="col-4 my-4 pt-12">
+                    <div class="menu_deroulant mnd_rond">
+                        <div class="menu_deroule mnd_effet"><a href="" class="mnd_element">kqsllq lqsdkjqlsd 1 </a></div>
+                        <div class="menu_deroule  mnd_deroule">kqsllq lqsdkjqlsd 2 <i class="carrot icone arrow_triangle-down"></i>
+                            <div class="groupe_element">
+                                <a href="" class="mnd_element">kqsllq lqsdkjqlsd kqsllq</a>
+                                <a href="" class="mnd_element">kqsllq lqsdkjqlsd_kqsllq</a>
+                                <a href="" class="mnd_element">kqsllq lqsdkjqlsd kqsllq</a>
+                                <a href="" class="mnd_element">kqsllq lqsdkjqlsd kqsllq</a>
+                            </div>
+                        </div>
+                        <div class="menu_deroule mnd_effet"><a href="" class="mnd_element">kqsllq lqsdkjqlsd 3</a></div>
+                        <div class="menu_deroule mnd_deroule">kqsllq lqsdkjqlsd 4 <i class="carrot icone arrow_triangle-down"></i>
+                            <div class="groupe_element">
+                                <a href="" class="mnd_element">kqsllq lqsdkjqlsd kqsllq</a>
+                                <a href="" class="mnd_element">kqsllq lqsdkjqlsd_kqsllq</a>
+                                <a href="" class="mnd_element">kqsllq lqsdkjqlsd kqsllq</a>
+                                <a href="" class="mnd_element">kqsllq lqsdkjqlsd kqsllq</a>
+                            </div>
+                        </div>
+                        <div class="menu_deroule mnd_effet"><a href="" class="mnd_element">kqsllq lqsdkjqlsd 3</a></div>
+                        <div class="menu_deroule mnd_effet"><a href="" class="mnd_element">kqsllq lqsdkjqlsd 3</a></div>
+                    </div>
+                </div>
+
+                <div class="col-4 my-4 pt-12">
+                    <div class="menu_liste mnd_mlc">
+                        <div class="mnd_menu mlc_effet"><a href="" class="mnd_element">kqsllq lqsdkjqlsd 1</a></div>
+                        <div class="mnd_menu mlc_effet"><a href="" class="mnd_element">kqsllq lqsdkjqlsd 3</a></div>
+                        <div class="mnd_menu mlc_effet"><a href="" class="mnd_element">kqsllq lqsdkjqlsd 1</a></div>
+                        <div class="mnd_menu mlc_effet"><a href="" class="mnd_element">kqsllq lqsdkjqlsd 3</a></div>
+                        <div class="mnd_menu mlc_effet"><a href="" class="mnd_element">kqsllq lqsdkjqlsd 3</a></div>
+                        <div class="mnd_menu mlc_effet"><a href="" class="mnd_element">kqsllq lqsdkjqlsd 3</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contenaire fond_blanc border_no">
+            <p class="titre">zonestyle onglets</p>
+            <div class="onglet">
+                <ul class="menu-onglets">
+                    <li class="menu-onglet actif"><a class="lien-onglet" data-onglet data-target="onglet-1">Acceuil </a></li>
+                    <li class="menu-onglet"><a class="lien-onglet" data-onglet data-target="onglet-2">Onglet 2</a></li>
+                    <li class="menu-onglet"><a class="lien-onglet" data-onglet data-target="onglet-3">Onglet 3</a></li>
+                    <li class="menu-onglet"><a class="lien-onglet" data-onglet data-target="onglet-4">Onglet 4</a></li>
+                </ul>
+                <div class="corps-onglet actif" id="onglet-1" style="background: url('img/slide-4.jpg') center/cover; height: 200%;">
+                    <h1 style="float:right; color: #fff;">Bienvenue</h1>
+                </div>
+                <div class="corps-onglet" id="onglet-2">
+                    <h1 style="float:right;">Onglet 2</h1>
+                </div>
+                <div class="corps-onglet" id="onglet-3">
+                    <h1 style="float:right;">Onglet 3</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="contenaire fond_blanc border_no">
+            <p class="titre">barre de progression</p>
+            <div class="barre_progression" data-progress data-target="p1">
+                <div class="progression degrader" id="p1" data-value="40"></div>
+            </div> 
+            <div class="barre_progression progression_bleu" data-progress data-target="p2">
+                <div class="progression" id="p2" data-value="20"></div>
+            </div> 
+            <div class="barre_progression" data-progress data-target="p3">
+                <div class="progression degrader-2" id="p3" data-value="70"></div>
+            </div> 
+        </div>
+
+        <div class="contenaire fond_blanc border_no">
+            <p class="titre">barre de chargement</p>
+            <div class="barre_chargement">
+                <div class="barre ch_barre infinite bb"></div>
+            </div> 
+            <div class="barre_chargement chargement_bleu">
+                <div class="barre degrader ch_barre-3"></div>
+            </div> 
+            <div class="barre_chargement chargement_rouge">
+                <div class="barre degrader-2 infinite ch_barre-2"></div>
+            </div> 
+            <div class="barre_chargement">
+                <div class="barre ch_barre"></div>
+            </div> 
+        </div>
+
+        <div class="contenaire wow fadeInUpBig">
+            <p class="titre">zs_boutton bg_couleur-o</p>
+            <button class="zs_boutton bt_defaut-o bt_effet-g">boutton defaut</button>
+            <button class="zs_boutton bt_danger-o bt_effet">boutton danger</button>
+            <button class="zs_boutton bt_infos-o bt_effet">boutton infos</button>
+            <button class="zs_boutton bt_succes-o bt_effet">boutton succes</button>
+            <button class="zs_boutton bt_alert-o bt_effet">boutton alert</button>
+            <button class="zs_boutton bt_defaut-o bt_arrondis bt_effet-g">boutton defaut</button>
+            <button class="zs_boutton bt_danger-o bt_arrondis bt_effet-g">boutton danger</button>
+            <button class="zs_boutton bt_infos-o bt_arrondis bt_effet-g">boutton infos</button>
+            <button class="zs_boutton bt_succes-o bt_arrondis bt_effet-g">boutton succes</button>
+            <button class="zs_boutton bt_alert-o bt_arrondis bt_effet-g">boutton alert</button>
+
+            <div class="zs_colonnes">
+                <button class="zs_boutton bt_defaut-o bt_rond bt_effet"><i class="icone icon_book"></i></button>
+                <button class="zs_boutton bt_danger-o bt_rond bt_effet-g"><i class="icone icon_image"></i></button>
+                <button class="zs_boutton bt_infos-o bt_rond bt_effet-g"><i class="icone icon_pencil"></i></button>
+                <button class="zs_boutton bt_succes-o bt_rond bt_effet-g"><i class="icone icon_profile"></i></button>
+                <button class="zs_boutton bt_alert-o bt_rond bt_effet-g"><i class="icone icon_link_alt"></i></button>
+                <button class="zs_boutton bt_danger-o bt_rond"><i class="icone icon_book"></i></button>
+                <button class="zs_boutton bt_infos-o bt_rond"><i class="icone icon_pencil"></i></button>
+                <button class="zs_boutton bt_succes-o bt_rond bt_effet-g"><i class="icone icon_profile"></i></button>
+                <button class="zs_boutton bt_alert-o bt_rond"><i class="icone icon_pin_alt"></i></button>
+                <button class="zs_boutton bt_infos-o bt_rond bt_effet-g"><i class="icone icon_pencil"></i></button>
+            </div>
+
+            <div class="zs_colonnes">
+                <button class="zs_boutton bt_defaut-o bt_effet"><i class="icone icon_book"></i></button>
+                <button class="zs_boutton bt_danger-o bt_effet-g"><i class="icone icon_image"></i></button>
+                <button class="zs_boutton bt_infos-o bt_effet-g"><i class="icone icon_pencil"></i></button>
+                <button class="zs_boutton bt_succes-o bt_effet-g"><i class="icone icon_profile"></i></button>
+                <button class="zs_boutton bt_alert-o bt_effet-g"><i class="icone icon_link_alt"></i></button>
+                <button class="zs_boutton bt_danger-o"><i class="icone icon_book"></i></button>
+            </div>
+        </div>
+
+        <div class="contenaire">
+            <p class="titre">Zs_card panneau</p>
+            <div class="colonnes_flexible">
+                <div class="col-4 my-4 pt-12 wow fadeInLeftBig">
+                    <div class="zs_cards panneau fond_blanc">
+                        <div class="cards_image">
+                            <img src="img/2.jpg" class="img_responsive" alt="image2"/>
+                        </div>
+                        <div class="cards_part_down">
+                            <p>kmqkjfdmj mlkqkjdmqd mqjkddqmdl mmklqjdmlkkqsldq kmjqdkjqmd kmjqkmlq</p>
+                            <button class="zs_boutton bt_infos bt_effet bt_arrondis">boutton infos</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 my-4 pt-12">
+                    <div class="zs_cards panneau p_special">
+                        <div class="cards_image">
+                            <img src="img/1.jpg" class="img_responsive" alt="image1"/>
+                        </div>
+                        <div class="cards_part_down">
+                            <p>kmqkjfdmj mlkqkjdmqd mqjkddqmdl mmklqjdmlkkqsldq kmjqdkjqmd kmjqkmlq</p>
+
+                            <button class="zs_boutton bt_fb bt_effet"><i class="icone social_facebook"></i></button>
+                            <button class="zs_boutton bt_gplus gd_bt"><i class="icone social_googleplus"></i></button>
+                            <button class="zs_boutton bt_youtube bt_effet"><i class="icone social_youtube"></i></button>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 my-4 pt-12 wow fadeInRightBig">
+                    <div class="zs_cards panneau fond_blanc">
+                        <div class="cards_image">
+                            <img src="img/3.jpg" class="img_responsive" alt="image3"/>
+                        </div>
+                        <div class="cards_part_down">
+                            <p>kmqkjfdmj mlkqkjdmqd mqjkddqmdl mmklqjdmlkkqsldq kmjqdkjqmd kmjqkmlq</p>
+
+                            <button class="zs_boutton bt_fb bt_arrondis bt_effet-g"><i class="icone social_facebook_circle"></i>facebook</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contenaire fond_blanc border_no rond_haut">
+            <button class="zs_boutton bt_degrader_orange bt_effet-g">boutton defaut</button>
+            <button class="zs_boutton bt_danger-o bt_effet">boutton danger</button>
+            <button class="zs_boutton bt_degrader_bleu bt_infos-o bt_effet">boutton infos</button>
+            <button class="zs_boutton bt_succes-o bt_effet">boutton succes</button>
+            <button class="zs_boutton bt_degrader_orange bt_effet">boutton alert</button>
+
+            <button class="zs_boutton bt_degrader_orange bt_arrondis bt_effet-g">boutton defaut</button>
+            <button class="zs_boutton bt_danger-o bt_arrondis bt_effet">boutton danger</button>
+            <button class="zs_boutton bt_degrader_bleu bt_arrondis bt_effet">boutton infos</button>
+            <button class="zs_boutton bt_succes-o bt_arrondis bt_effet">boutton succes</button>
+            <button class="zs_boutton bt_degrader_orange bt_arrondis bt_effet">boutton alert</button>
+        </div>
+
+        <div class="contenaire">
+            <div class="zs_colonnes">
+                <p class="titre">Veuillez cliquer pour effectuer une action</p>
+                <center>
+                    <button class="zs_boutton bt_succes bt_effet-g" data-modal data-target="modal1">boutton modal esc</button>
+                    <button class="zs_boutton bt_danger-o bt_arrondis bt_effet">boutton modal</button>
+                    <button class="zs_boutton bt_alert bt_effet" data-modal data-target="modal2">boutton modal cover</button>
+                </center>
+            </div>
+        </div>
+
+        <div id="modal1" class="zs_modale scroll scroll_v" role="dialog">
+            <div class="modale_contenaire">
+                <p class="titre">Veuillez cliquer pour effectuer une action</p>
+                <center>
+                    <button class="zs_boutton bt_infos bt_rond bt_effet-g"><i class="icone icon_pencil"></i>                         
+                    </button>
+                    <button class="zs_boutton bt_maison"><i class="icone icon_mail"></i>
+                        <span class="mail_cards">
+                            <div class="onglet-horizontal">
+                                <ul class="menu-onglets">
+                                    <li class="menu-onglet actif"><a class="lien-onglet" data-onglet-horizontal data-target="sss">Acceuil </a></li>
+                                    <li class="menu-onglet"><a class="lien-onglet" data-onglet-horizontal data-target="ss">Messages</a></li>
+                                </ul>
+                                <div class="corps-onglet-horizontal actif" id="sss" style="background: url('img/slide-4.jpg') center/cover; height: 200%;">
+                                    <h1 style="float:right; color: #fff;">Bienvenue</h1>
+                                </div>
+                                <div class="corps-onglet-horizontal" id="ss">
+                                    <h1 style="float:right; color: #666;">Aucun message recu</h1>
+                                </div>
+                            </div>
+                        </span>
+                    </button>
+                    <button class="zs_boutton bt_alert bt_rond bt_effet-g"><i class="icone icon_error-triangle_alt"></i></button>
+                </center>
+            </div>
+        </div>
+
+        <div id="modal2" class="zs_modale modale_cover scroll scroll_v" role="dialog">
+            <div class="modale_contenaire">
+                <p class="titre">Veuillez cliquer pour effectuer une action</p>
+                <center>
+                    <button class="zs_boutton bt_infos bt_rond bt_effet-g"><i class="icone icon_pencil"></i>                         
+                    </button>
+                    <button class="zs_boutton bt_maison"><i class="icone icon_mail"></i>
+                        <span class="mail_cards">
+                            <div class="onglet-horizontal">
+                                <ul class="menu-onglets">
+                                    <li class="menu-onglet actif"><a class="lien-onglet" data-onglet-horizontal data-target="dd">Acceuil </a></li>
+                                    <li class="menu-onglet"><a class="lien-onglet" data-onglet-horizontal data-target="aa">Messages</a></li>
+                                </ul>
+                                <div class="corps-onglet-horizontal actif" id="dd" style="background: url('img/slide-4.jpg') center/cover; height: 200%;">
+                                    <h1 style="float:right; color: #fff;">Bienvenue</h1>
+                                </div>
+                                <div class="corps-onglet-horizontal" id="aa">
+                                    <h1 style="float:right; color: #666;">Aucun message recu</h1>
+                                </div>
+                            </div>
+                        </span>
+                    </button>
+                    <button class="zs_boutton bt_alert bt_rond bt_effet-g"><i class="icone icon_error-triangle_alt"></i></button>
+                </center>
+            </div>
+        </div>
+
+        <div class="modale_alert show_modale scroll wow fadeInUp" id="md-alert1">
+            <div class="modale_contenaire">
+                <div class="zs_alert alert_infos">
+                    <div class="alert_indicator">
+                        <i class="icone icon_info_alt"></i>
+                    </div>
+                    <div class="alert_contenu fond_blanc">
+                        <center><h3>ZoneStyle preview v1.5 latest</h3></center>
+                        <h4>Bonjour très chers et fidèles utilisateurs du framework css ZoneStyle !! retrouvez ici une vue de la toute nouvelle version de votre framework</h4><hr>
+                        <center>
+                            Partagez le dès maintenant pour agrandir notre communauté :<hr>
+
+                            <button class="zs_boutton bt_fb bt_rond bt_effet-g"><i class="icone social_facebook"></i></button>
+                            <button class="zs_boutton bt_gplus bt_rond"><i class="icone social_googleplus"></i></button>
+                            <button class="zs_boutton bt_youtube bt_rond bt_effet-g"><i class="icone social_youtube"></i></button>
+                            <button class="zs_boutton bt_twitter bt_rond"><i class="icone social_twitter"></i></button>
+                            <button class="zs_boutton bt_pinterest bt_rond bt_effet-g"><i class="icone social_pinterest"></i></button>
+                            <hr>
+                            <a href="doc/zonestyle v1.5 latest.zip"><button class="zs_boutton bt_degrader_bleu bt_arrondis bt_effet-g">Download | Telecharger</button></a>
+                        </center>
+                    </div>
+                    <div class="alert_close">
+                        <i class="icone icon_close"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contenaire border_no">
+            <p class="titre">menu accordeon</p>
+            <div class="zs_colonnes fond_blanc border_no">
+                <div class="col-4 my-6 pt-12 wow fadeInRightBig">
+                    <div class="accordeon">
+                        <div class="bt_accordeon" data-accordeon data-target="accord1">jqkfdjqk kqjdqjkd <i class="carrot icone arrow_triangle-down"></i></div>
+                        <div class="menu_accordeon" id="accord1">
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                        </div>
+                        <div class="bt_accordeon" data-accordeon data-target="accord2">jqkfdjqk kqjdqjkd <i class="carrot icone arrow_triangle-down"></i></div>
+                        <div class="menu_accordeon" id="accord2">
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                        </div>
+                        <div class="bt_accordeon" data-accordeon data-target="accord3">jqkfdjqk kqjdqjkd <i class="carrot icone arrow_triangle-down"></i></div>
+                        <div class="menu_accordeon" id="accord3">
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                        </div>
+                        <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                        <div class="bt_accordeon" data-accordeon data-target="acco3">jqkfdjqk kqjdqjkd <i class="carrot icone arrow_triangle-down"></i></div>
+                        <div class="bt_accordeon" data-accordeon data-target="acco3">jqkfdjqk kqjdqjkd <i class="carrot icone arrow_triangle-down"></i></div>
+                    </div>
+                </div>
+                <div class="col-4 my-6 pt-12 wow fadeInRightBig">
+                    <div class="accordeon fond_no">
+                        <div class="bt_accordeon" data-accordeon data-target="accor1">jqkfdjqk kqjdqjkd <i class="carrot icone arrow_triangle-down"></i></div>
+                        <div class="menu_accordeon" id="accor1">
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                        </div>
+                        <div class="bt_accordeon" data-accordeon data-target="accor2">jqkfdjqk kqjdqjkd <i class="carrot icone arrow_triangle-down"></i></div>
+                        <div class="menu_accordeon" id="accor2">
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                        </div>
+                        <div class="bt_accordeon" data-accordeon data-target="accor3">jqkfdjqk kqjdqjkd <i class="carrot icone arrow_triangle-down"></i></div>
+                        <div class="menu_accordeon" id="accor3">
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                            <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                        </div>
+                        <a href="" class="lien_accordeon">jqslqlq_lkqjsdlq kljq</a>
+                        <div class="bt_accordeon" data-accordeon data-target="accor">jqkfdjqk kqjdqjkd <i class="carrot icone arrow_triangle-down"></i></div>
+                        <div class="bt_accordeon" data-accordeon data-target="accor">jqkfdjqk kqjdqjkd <i class="carrot icone arrow_triangle-down"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="colonnes_flexible fond_blanc border_no">
+                <div class="col extra">
+                    <img src="img/1.jpg" class="image_fluid image_zoom" alt="image1"/>
+                </div>
+                <div class="col extra">
+                    <img src="img/2.jpg" class="image_rond image_zoom" alt="image2"/>
+                </div>
+                <div class="col extra">
+                    <img src="img/3.jpg" class="image_arrondis image_zoom" alt="image3"/>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div class="zs_footer fond_orange wow fadeInUp">
+            <div class="zs_colonnes">
+                <div class="col-12 my-12 pt-12">
+                    <center>
+                        <button class="zs_boutton bt_pinterest bt_arrondis"><i class="icone social_pinterest_circle"></i>pinterest</button>
+                        <button class="zs_boutton bt_fb bt_arrondis bt_effet-g"><i class="icone social_facebook_circle"></i>facebook</button>
+                        <button class="zs_boutton bt_gplus bt_arrondis"><i class="icone social_googleplus_circle"></i>google plus</button>
+                        <button class="zs_boutton bt_twitter bt_arrondis"><i class="icone social_twitter_circle"></i>twitter</button>
+                        <button class="zs_boutton bt_instagram bt_arrondis bt_effet-g"><i class="icone  social_instagram_circle"></i>instagram</button>
+                        <p class="titre" style="color: #fff;">Copyright &copy; 2016 ZoneStyle</p>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/zonestyle.min.js" type="text/javascript"></script>
+        <script>
+
+            new WOW().init();
+
+        </script>
+    </body>
+</html>
