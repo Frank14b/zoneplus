@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<!--
+@Copyright 2017
+@Design by ZoneStyle V1.5.1
+@Author : 
+@Designer : Frank Donald Fontcha.
+-->
+<html class="scroll scroll_bleu">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content=""/>
+        <link rel="stylesheet" href="css/zonestyle.min.css" type="text/css"/>
+        <link rel="stylesheet" href="font/style.min.css" type="text/css"/>
+        <link rel="stylesheet" href="css/mathfi.css" type="text/css"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MathFi | ZonePluS</title>
+    </head>
+    <body class="barre_bleu"> 
+        <div class="barre_navigation fixe">
+            <div class="barre_logo">
+                <button class="zs_boutton bt_rond bt_infos-o bt_zone-gauche"><i class="icone icon_menu"></i></button>
+                <a>MATHFI</a>
+            </div>
+            <div class="barre_menu mn_boutton">
+                <ul class="zs_menu">
+                    <li class="element_menu actif"><a href="index.html" class="lien_menu"><i class="icone icon_house_alt"></i>&nbsp; Acceuil</a></li>
+                    <li class="element_menu"><a href="" class="lien_menu"><i class="icone icon_question_alt"></i>&nbsp; Apropos</a></li>
+                    <li class="element_menu"><a href="" class="lien_menu"><i class="icone icon_tool"></i>&nbsp; Aide</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="zone_gauche scroll scroll_v scroll_bleu fond_blanc">
+            <div class="menu_deroulant fond_no" style="margin-top: 5%;">
+                <div class="menu_deroule mnd_deroule">Partie 1: Intérets Simples<i class="carrot icone arrow_triangle-down"></i>
+                    <div class="groupe_element actif">
+                        <a href="interetSimple.html" class="mnd_element">Intéret Simple et Composants</a>
+                    </div>
+                </div>
+                <div class="menu_deroule mnd_deroule">Partie 2: Intérets Composés<i class="carrot icone arrow_triangle-down"></i>
+                    <div class="groupe_element">
+                        <a href="interetCompose.html" class="mnd_element">Intéret Composé et Composants</a>
+                    </div>
+                </div>
+                <div class="menu_deroule mnd_deroule">Partie 3: Escompte Commercial<i class="carrot icone arrow_triangle-down"></i>
+                    <div class="groupe_element">
+                        <a href="" class="mnd_element">Aucune Opération</a>
+                    </div>
+                </div>
+                <div class="menu_deroule mnd_deroule">Partie 4: Annuités<i class="carrot icone arrow_triangle-down"></i>
+                    <div class="groupe_element">
+                        <a href="" class="mnd_element">Aucune Opération</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grand_contenaire centrer_texte" style="margin-top: -2%;">
+            <img src="img/ebook.png" class="img_responsive" style="min-height: 100px;" alt="img"/>
+            <div class="superpose_cover fond_noir"></div>
+            <div class="superpose">
+                <h1 style="margin-top: 5%;">MATHFI PRO APP ESCOMPTE COMMERCIAL</h1>
+            </div>
+        </div>
+
+        <div class="grand_contenaire fond_no" style="margin-top: 5%;">
+            <div class="zs_colonnes">
+                <div class="col-3 st-1 my-4 pt-12 fond_no">
+                    <div class="menu_liste" style="margin-top: -15px; background: #fff;">
+                        <div class="mnd_menu mlc_effet"><a class="mnd_element">Calcul de L'escompte</a></div>
+                        <div class="mnd_menu mlc_effet"><a class="mnd_element">Calcul du Capital</a></div>
+                        <div class="mnd_menu mlc_effet"><a class="mnd_element">Valeur Effective</a></div>
+                        <div class="mnd_menu mlc_effet"><a class="mnd_element">Durée du placement</a></div>
+                        <div class="mnd_menu mlc_effet"><a class="mnd_element">Taux du Placement</a></div>
+                    </div>
+                </div>
+                <div class="col-7 my-8 pt-12 fond_blanc">
+                    <div class="col-6 my-6 pt-12 fond_no">
+                        <p class="titre">
+                            Veuillez selectionner une action à éffectué parmis celle ci à votre gauche.
+                        </p>
+                    </div>
+                    <div class="col-5 my-6 pt-12 fond_blanc">Share:
+                        <button class="zs_boutton bt_pinterest bt_rond"><i class="icone social_pinterest"></i></button>
+                        <button class="zs_boutton bt_fb bt_rond bt_effet-g"><i class="icone social_facebook"></i></button>
+                        <button class="zs_boutton bt_gplus bt_rond"><i class="icone social_googleplus"></i></button>
+                        <button class="zs_boutton bt_twitter bt_rond"><i class="icone social_twitter"></i></button>               
+                    </div>
+                    <div class="col-12 my-12 pt-12">
+                        <p><button class="zs_boutton bt_pinterest Calculs">Effectué une Opération</button>
+                           <button class="zs_boutton bt_pinterest Calculs">Valeur Acquise</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="zone_mathfi scroll scroll_v scroll_bleu fond_blanc">
+            <button class="zs_boutton bt_gplus bt_rond adroite close"><i class="icone icon_close"></i></button>
+            <form class="zs_form fond_blanc" style="margin-top: 10%; background: #0275D8; border: #0275D8; color:  #fff;">
+                <div class="zs_alert alert_infos">
+                    <div class="alert_indicator fond_rouge" style="background: red">.</div>
+                    <div class="alert_contenu fond_banc" id="resultat" style="width: 91%; color: #444; background: #fff; border-radius: 0px 6px 6px 0px;">
+                        votre résultat ici!!!
+                    </div>
+                </div>
+                <div class="col-6 my-6 pt-12">
+                    <div class="zs_colonnes scroll scroll_v hover" style="height: 150px;">
+                        Choisir votre Opération : <hr/>
+                        <div class="col-6 my-6 pt-6">
+                            <label class="zs_label" for="Interet">
+                                <input type="radio" data-element data-target="is1" name="ope" value="is" id="Interet" class="zs_radio"/>Intéret
+                            </label>
+                        </div>
+                        <div class="col-6 my-6 pt-6">
+                            <label class="zs_label" for="Capital">
+                                <input type="radio" id="Capital" data-element data-target="ca1" name="ope" value="ca" class="zs_radio"/>Capital
+                            </label>
+                        </div>
+                        <div class="col-6 my-6 pt-6">
+                            <label class="zs_label" for="Duree">
+                                <input type="radio" id="Duree" data-element data-target="du1" name="ope" value="du" class="zs_radio"/>Durée
+                            </label>
+                        </div>
+                        <div class="col-6 my-6 pt-6">
+                            <label class="zs_label" for="Taux">
+                                <input type="radio" id="Taux" data-element data-target="ta1" name="ope" value="ta" class="zs_radio"/>Taux
+                            </label>
+                        </div>
+                    </div>
+                    <div class="hide grand_contenaire" style="background: #fff; color: #333;">
+                        <label class="zs_label" id="is1" for="is">
+                            <span class="icone icon_pencil"></span>
+                            <input type="number" id="is" required="" class="zs_input" placeholder="Intéret"/>
+                        </label>
+                        <label class="zs_label" id="ca1" for="ca">
+                            <span class="icone icon_pencil"></span>
+                            <input type="number" id="ca" required="" class="zs_input" placeholder="Capital" />
+                        </label>
+                        <label class="zs_label" id="ta1" for="ta">
+                            <span class="icone icon_pencil"></span>
+                            <input type="number" id="ta" required="" class="zs_input" placeholder="Taux"/>
+                        </label>
+                        <label class="zs_label" id="du1" for="du">
+                            <span class="icone icon_pencil"></span>
+                            <input type="number" id="du" required="" class="zs_input" placeholder="Durée"/>
+                        </label>
+                        <label class="zs_label" for="periode">
+                            <span class="icone icon_menu"></span>
+                            <select name="slect" id="periode" class="zs_select">
+                                <option value="">Période :</option>
+                                <option value="a">Année</option>
+                                <option value="m">Mois</option>
+                                <option value="j">Jours</option>
+                            </select>
+                        </label>
+                        <button class="zs_boutton bt_infos-o bt_arrondis adroite autoActif" id="validate">Valider &nbsp;<i class="icone icon_check"></i></button>
+                        <button class="zs_boutton bt_alert-o bt_arrondis adroite" type="reset" name="reset" style="margin-right: 8px;">Annuler &nbsp;<i class="icone icon_close"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="grand_contenaire fond_banc" style="margin-top: 5%;">
+            <div class="zs_colonnes">
+                <div class="col-8 st-2 my-12 pt-12 fond_blanc centrer_texte">
+                    Nous suivres sur : <hr/>
+                    <button class="zs_boutton bt_pinterest bt_arrondis"><i class="icone social_pinterest_circle"></i>pinterest</button>
+                    <button class="zs_boutton bt_fb bt_arrondis bt_effet-g"><i class="icone social_facebook_circle"></i>facebook</button>
+                    <button class="zs_boutton bt_gplus bt_arrondis"><i class="icone social_googleplus_circle"></i>google plus</button>
+                    <button class="zs_boutton bt_twitter bt_arrondis"><i class="icone social_twitter_circle"></i>twitter</button>
+                </div>
+            </div>
+            <div class="zs_footer fond_bleu">
+                <p class="titre">
+                    <b class="agauche">Copyright &COPY; 2017 mathfi</b>
+                    <b class="adroite">By Frank Donald Fontcha</b>
+                </p>
+            </div>
+        </div>
+
+        <?php
+        // put your code here
+        ?>
+
+        <script type="text/javascript">
+            new WOW().init();
+        </script>
+        <script src="js/jquery.min.js" type="text/javascript"></script>
+        <script src="js/zonestyle.min.js" type="text/javascript"></script>
+        <script src="js/mathfi.min.js" type="text/javascript"></script>
+    </body>
+</html>
