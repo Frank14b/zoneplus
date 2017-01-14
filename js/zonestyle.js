@@ -6,408 +6,41 @@
  */
 
 $(document).ready(function() {
-    $('body').append('<button class="zs_boutton bt_rond to_top" title="aller plus haut"><span class="bt_effet-g"></span><i class="icone arrow_carrot-up"></i></button>');
-    $('body').append('<button class="zs_boutton bt_rond to_bottom" title="aller plus bas"><span class="bt_effet-d"></span><i class="icone arrow_carrot-down"></i></button>');
-    $('.bt_effet').append('<span class="bt_effet"></span>');
-    $('.bt_effet-g').append('<span class="bt_effet-g"></span>');
-    $('.bt_effet-d').append('<span class="bt_effet-d"></span>');
+    $('.bt_effet').effetZs({
+        "type": "bt_effet"
+    });
     $('.lien_effet').append('<div class="lien_effet"></div>');
     $('.mnd_effet').append('<div class="mnd_effet"></div>');
     $('.mlc_effet').append('<div class="mlc_effet"></div>');
     $('.mn_boutton').before('<span class="pt_menu icone arrow_carrot-2down" title="Menu"></span>');
-
+    $('.menu_accordeon').append('<a class="lien_accordeon close_accord"><i class="icone arrow_carrot-2up"></i></a>');
     $('.zs_radio').after('<span class="zs-radio"></span>');
     $('.zs_checkbox').after('<span class="zs-check"></span>');
     $('.zs_image').after('<img src="#" id="preview" />');
-
-    $('.zs_image').after('<div class="zs_alert" id="input_image_verify">'
-            + '<div class="alert_contenu fond_blanc hover scroll scroll_v">'
-            + 'Erreur veuillez choisir une image valide'
-            + '</div>'
-            + '</div>');
-
-    $('.text').after('<div class="zs_alert" id="input_text_verify">'
-            + '<div class="alert_contenu fond_blanc hover scroll scroll_v">'
-            + 'Erreur veuillez entrer uniquement des entiers'
-            + '</div>'
-            + '</div>');
-
-    $('.textNumero').after('<div class="zs_alert" id="input_textNumero_verify">'
-            + '<div class="alert_contenu fond_blanc hover scroll scroll_v">'
-            + 'Erreur entrer uniquement des entiers et chiffres'
-            + '</div>'
-            + '</div>');
-
-    $('.email').after('<div class="zs_alert" id="input_email_verify">'
-            + '<div class="alert_contenu fond_blanc hover scroll scroll_v">'
-            + 'Erreur veuillez entrer une adresse valide'
-            + '</div>'
-            + '</div>');
-
-    $('.password').after('<div class="zs_alert" id="input_password_verify">'
-            + '<div class="alert_contenu fond_blanc hover scroll scroll_v">'
-            + 'Erreur 6 caracteres aumoins (1 chiffres, 1 minuscule, 1 majuscule) requis'
-            + '</div>'
-            + '</div>');
-
-    /////////////// open menu pt_menu //////////////////
-
-    $(".pt_menu").click(function() {
-        $(".barre_menu").slideToggle(600);
-    });
-
-    /////////// pdf div définition ////////////////////////
-
-    $("[data-pdf]").attr('', function() {
-        var documentWidth = $('#' + $(this).data('target')).attr('data-height');
-        $(this).css({'text-align': 'center'});
-        $('#' + $(this).data('target')).css({'width': '90%', 'border-radius': '1px', 'box-shadow': '0 12px 17px 0 rgba(0,0,0,.16),0 12px 20px 0 rgba(0,0,0,.12)'});
-        $('#' + $(this).data('target')).css({'height': documentWidth + 'px'});
-    });
-    ////////////////alert message close ////////////////////
-
-    $(".alert_close").click(function() {
-        $(this).parent().fadeOut(600);
-    });
-
-    ///////////  fenetre modales ///////////////////////////
-
-    $('.modale_contenaire').before('<span class="fermer_modale">&times;</span>');
-    $('body').append('<div class="modale"></div>');
-    $('.show_modale').before('<div class="modale_back"></div>');
-
-    $('.show_modale').fadeIn(800);
-    $('.modale_back').fadeIn(800);
-
-    $(".fermer_modale").click(function() {
-        $(this).parent().fadeOut();
-        $(".modale").fadeOut();
-        $(".modale_back").fadeOut();
-    });
-
-    $(".modale").click(function() {
-        $(this).fadeOut();
-        $(".zs_modale").fadeOut();
-    });
-
-    $(".modale_back").click(function() {
-        $(this).fadeOut();
-        $(".zs_modale").fadeOut();
-    });
-
-    $('[data-modal]').on('click', function(e) {
-        e.preventDefault();
-        $('#' + $(this).data('target')).fadeIn(600);
-        $('#' + $(this).data('target')).children('.modale_contenaire').animate({opacity: '1'}, 600);
-        $(".modale").fadeIn();
-    });
-
-    //////////////////////////  accordeon classe  ////////////////////////////////
-
-    $('.menu_accordeon').append('<a class="lien_accordeon close_accord"><i class="icone arrow_carrot-2up"></i></a>');
-    $('[data-accordeon]').on('click', function(e) {
-        e.preventDefault();
-        $(this).parent().children('.menu_accordeon').slideUp(700);
-        $('#' + $(this).data('target')).slideToggle(700);
-    });
-
-    $(".close_accord").click(function() {
-        $(this).parent().slideUp(700);
-    });
-
-
-    ///////////  fenetre modales alerte ///////////////////////////
-
-    $(".fermer_modale").click(function() {
-        $(this).parent().fadeOut();
-        $(".modale").fadeOut();
-        $(".modale_back").fadeOut();
-    });
-
-    $(".modale").click(function() {
-        $(this).fadeOut();
-        $(".modale_alert").fadeOut();
-    });
-    $(".modale_back").click(function() {
-        $(this).fadeOut();
-        $(".modale_alert").fadeOut();
-    });
-
-    $('[data-alert]').on('click', function(e) {
-        e.preventDefault();
-        $('#' + $(this).data('target')).fadeIn(600);
-        $('#' + $(this).data('target')).children('.modale_contenaire').animate({opacity: '1'}, 600);
-        $(".modale").fadeIn();
-    });
-
-    //////////// parametrage progress bar /////////////////////////
-
-    $('[data-progress]').attr('', function() {
-        var $a = $(this).find('div').attr('data-value');
-        $(this).append('<span class="progress"></span>');
-        $(this).children('.progress').text($a + '%');
-        $('#' + $(this).data('target')).animate({width: $a + '%'}, 1600);
-    });
-
-    setInterval(function() {
-        $('.cercle_progression').children('.progression').fadeToggle(1800);
-        $('.cercle_progression').children('.progression-1').fadeToggle(1400);
-        $('.cercle_progression').children('.progression-2').fadeToggle(1800);
-        $('.cercle_progression').children('.progression-5').fadeToggle(1300);
-    }, 5);
-
-
-    //////////////////////////////////////////////////////////
-
-    $(".bt_share").on('click', function(e) {
-        e.preventDefault();
-        $(this).parent().children(".share_items").fadeToggle(1000);
-    });
-
-    $(".bt_alert_open").on('click', function(e) {
-        e.preventDefault();
-        $(this).parent().children(".alert_mssg").fadeIn(1000);
-        $(this).parent().children(".alert_mssg").fadeOut(10000);
-    });
-
-    $(".bt_deroule").on('click', function(e) {
-        e.preventDefault();
-        $(this).parent().children(".groupe_element").slideToggle(600);
-    });
-
-    $(".mnd_deroule").on('click', function(e) {
-        e.preventDefault();
-        $(this).children(".groupe_element").slideToggle(600);
-    });
-
-    setInterval(function() {
-
-        $('.clignote').fadeToggle(1000);
-
-        var posScroll = $(document).scrollTop();
-
-        if (posScroll >= 150) {
-            $('.to_top').fadeIn(600);
-        } else {
-            $('.to_top').fadeOut(400);
-        }
-
-        if (posScroll >= 100) {
-            $('.fixe').addClass('fixed').fadeIn(1000);
-            $('.transparence').addClass('transparent').fadeIn(1000);
-            $('.barre_cover').fadeIn(800);
-        } else {
-            $('.fixe').removeClass('fixed');
-            $('.transparence').removeClass('transparent');
-            $('.barre_cover').fadeOut(800);
-        }
-    }, 10);
-
-    setInterval(function() {
-        $(".ch_barre").animate({width: '100%'}, 6500);
-        $(".ch_barre-1").animate({width: '100%'}, 9000);
-        $(".ch_barre-2").animate({width: '100%'}, 10000);
-        $(".ch_barre-3").animate({width: '100%'}, 15000);
-
-        $(".infinite").animate({width: '1%'});
-
-        $(".ch_move").animate({marginLeft: '95%'}, 1500);
-        $(".ch_move").animate({marginLeft: '0%'}, 1500);
-        $(".ch_move-2").animate({marginLeft: '95%'}, 1000);
-        $(".ch_move-2").animate({marginLeft: '0%'}, 1000);
-        $(".ch_move-3").animate({marginLeft: '95%'}, 1500);
-        $(".ch_move-3").animate({marginLeft: '0%'}, 1500);
-
-        //////////////////////Body fade ////////////////////////////
-
-        jQuery(window).load(function() { // makes sure the whole site is loaded
-            $('#status').fadeOut(); // will first fade out the loading animation
-            $('#preloader').delay(600).fadeOut('slow'); // will fade out the white DIV that covers the website.
-            $('#preloader').hide();
-            $('#status').hide();
-            $('body').delay(1000).css({
-                'overflow': 'visible'
-            });
-        });
-    }, 5);
-
-    $('.ancre').click(function() {
-        var id = $(this).attr("href");
-        $('html, body').animate({scrollTop: $(id).offset().top}, 1000);
-        return false;
-    });
-
-    $('.ancre_hover').hover(function() {
-        var id = $(this).attr("href");
-        $('html, body').animate({scrollTop: $(id).offset().top}, 600);
-        return false;
-    });
-
-    $('.extreme_top').click(function() {
-        $('html, body').animate({
-            scrollTop: 0
-        }, 1000);
-        return false;
-    });
-    $('.to_top').click(function() {
-        $('html, body').animate({
-            scrollTop: '-=450px'}, 1000);
-        return false;
-    });
-    $('.to_bottom').click(function() {
-        $('html, body').animate({
-            scrollTop: '+=450px'}, 1000);
-        return false;
-    });
-
-    /////////////////////// onglets classes .//////////////////
-
-    $('[data-onglet]').on('click', function(e) {
-        e.preventDefault();
-        $(this).parent().parent().parent().children('.corps-onglet').hide();
-        $('#' + $(this).data('target')).fadeIn();
-    });
-
-    $('[data-onglet-horizontal]').on('click', function(e) {
-        e.preventDefault();
-        $(this).parent().parent().parent().children('.corps-onglet-horizontal').hide();
-        $('#' + $(this).data('target')).fadeIn();
-    });
-
-    $('.menu-onglet').click(function(event) {
-        event.preventDefault();
-        $(this).css('background-color', '#fff');
-        $(this).prevUntil().css('background-color', '#f5f5f5');
-        $(this).nextUntil().css('background-color', '#f5f5f5');
-    });
-
-    /////////////// zone menu gauche ///////////////////////
-
-    $('.centrer_texte').css({'text-align': 'center'});
-    $('.bt_zone-gauche').before('<button class="zs_boutton bt_rond bt_effet-g bt_infos bt_close-zone"><i class="icone icon_close" ></i></button>');
-    $('.zone_gauche').before('<div class="zs_gauche-cover"></div>');
-    $('.bt_zone-gauche').on('click', function(e) {
-        e.preventDefault();
-        $('.zone_gauche').animate({marginLeft: '310px'}, 1000);
-        $('.bt_close-zone').fadeIn(600);
-        $(this).hide();
-        $('.zone_droite').addClass('zone_droite-o');
-        $('.zs_gauche-cover').fadeIn(1000);
-    });
-
-    $('.bt_close-zone').on('click', function(e) {
-        e.preventDefault();
-        $('.zone_gauche').animate({marginLeft: '-310px'}, 1000);
-        $(this).hide();
-        $('.bt_zone-gauche').fadeIn(600);
-        $('.zs_gauche-cover').fadeOut(1000);
-        $('.zone_droite').removeClass('zone_droite-o');
-    });
-
-    $('.zs_gauche-cover').on('click', function(e) {
-        e.preventDefault();
-        $('.zone_gauche').animate({marginLeft: '-310px'}, 1000);
-        $('.bt_close-zone').hide();
-        $('.bt_zone-gauche').fadeIn(600);
-        $(this).fadeOut(1000);
-        $('.zone_droite').removeClass('zone_droite-o');
-    });
-
-    /////////////////////////////////////////////////////////////////////////////
-
-    $('.cards_image').mouseover(function() {
-        $(this).children('.image_fond').animate({opacity: '0.6'});
-        $(this).children('.image_texte').animate({opacity: '1'});
-    });
-
-    $('.cards_image').mouseleave(function() {
-        $(this).children('.image_fond').animate({opacity: '0'});
-        $(this).children('.image_texte').animate({opacity: '0'});
-    });
-
-    /////////////::: mini chat zonestyle //////////////////
-
-    $('.zs_chat').before('<div class="shadow_chat"></div>');
-
-    $('.boutton_chat').on('click', function() {
-        $(this).parent().children('.mini_chat').animate({opacity: '1'}, 1000);
-        $(this).parent().prev('.shadow_chat').fadeIn(1000);
-        $(this).parent().animate({marginRight: '150px', marginBottom: '210px'}, 1000);
-    });
-
-    $('.shadow_chat').on('click', function() {
-        $(this).next('.zs_chat').animate({marginRight: '-50px', marginBottom: '-40px'}, 1000);
-        $(this).next('.mini_chat').animate({opacity: '0.5'}, 1000);
-        $(this).fadeOut(1000);
-        $(this).next('.zs_chat').children('.chat_content').fadeOut(1000);
-    });
-
-    $('[data-chat]').on('click', function() {
-        $('#' + $(this).data('target')).children('.mini_chat').animate({opacity: '1'}, 1000);
-        $('#' + $(this).data('target')).prev('.shadow_chat').fadeIn(1000);
-        $('#' + $(this).data('target')).animate({marginRight: '150px', marginBottom: '210px'}, 1000);
-    });
-
-    $('[data-tools]').on('click', function() {
-        $('#' + $(this).data('target')).fadeIn(1000);
-    });
-
 });
 
-$(document).keypress(function(event) {
-    if (event.keyCode === 17) {
-        $('.shadow_chat').fadeOut(1000);
-        $('.chat_content').fadeOut(1000);
-        $('.zs_chat').animate({marginRight: '-30px', marginBottom: '-30px'}, 1000);
-        $('.mini_chat').animate({opacity: '0.5'}, 1000);
-
-        ////////////////////////zone gauche
-
-        $('.zone_gauche').animate({marginLeft: '-310px'}, 1000);
-        $('.bt_close-zone').hide();
-        $('.bt_zone-gauche').fadeIn(600);
-        $('.zs_gauche-cover').fadeOut(1000);
-        $('.zone_droite').removeClass('zone_droite-o');
-
-        ///////////// modale windows
-
-        $('.zs_modale').fadeOut();
-        $('.modale_alert').fadeOut();
-        $(".modale").fadeOut();
-        $(".modale_back").fadeOut();
-    }
-});
-
-///////////////////// texterea scroll /////////////////////////////
 $(function() {
 
     var txt = $('textarea'),
             hiddenDiv = $(document.createElement('div')),
             content = null;
-
     txt.addClass('txtstuff');
     hiddenDiv.addClass('hiddendiv common');
-
     $('body').append(hiddenDiv);
-
     txt.on('keyup', function() {
 
         content = $(this).val();
-
         content = content.replace(/\n/g, '<br>');
         hiddenDiv.html(content + '<br class="lbr">');
-
         $(this).css('height', hiddenDiv.height());
-
     });
 });
-
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function(e) {
             $(this).next("#preview").attr('src', e.target.result);
-        }
+        };
         reader.readAsDataURL(input.files[0]);
     } else {
         $(this).parent().children('#preview').fadeIn();
@@ -415,104 +48,11 @@ function readURL(input) {
 }
 
 $(document).ready(function() {
-
-    $('.zs_image').change(function() {
-
-        var ext = ['png', 'jpeg', 'jpg', 'gif', 'bmp'];
-        if ($.inArray($(this).val().split('.').pop().toLowerCase(), ext) === -1) {
-            $(this).parent().children('#input_image_verify').fadeIn();
-            $(this).parent().children('#preview').fadeOut();
-        } else {
-            $(this).parent().children('#input_image_verify').fadeOut();
-            $(this).parent().children('#preview').fadeIn();
-
-            readURL(this);
-        }
-    });
-
-    $('.email').keyup(function() {
-        var val = this.value;
-        var ext = new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$");
-        var vide = '';
-        if (ext.test(val)) {
-            $(this).parent().children('#input_email_verify').fadeOut();
-        } else if (vide === val) {
-            $(this).parent().children('#input_email_verify').fadeOut();
-        } else {
-            $(this).parent().children('#input_email_verify').fadeIn();
-        }
-    });
-
-    $('.textNumero').keyup(function() {
-        var val = this.value;
-        var ext = new RegExp("[A-Za-z]*\[0-9].{2,}");
-        var vide = '';
-        if (ext.test(val)) {
-            $(this).parent().children('#input_textNumero_verify').fadeOut();
-        } else if (vide === val) {
-            $(this).parent().children('#input_textNumero_verify').fadeOut();
-        } else {
-            $(this).parent().children('#input_textNumero_verify').fadeIn();
-        }
-    });
-
-    $('.text').keyup(function() {
-        var val = this.value;
-        var ext = new RegExp("[A-Za-z].{2,}");
-        var vide = '';
-        if (ext.test(val)) {
-            $(this).parent().children('#input_text_verify').fadeOut();
-        } else if (vide === val) {
-            $(this).parent().children('#input_text_verify').fadeOut();
-        } else {
-            $(this).parent().children('#input_text_verify').fadeIn();
-        }
-    });
-
-    $('.password').keyup(function() {
-        var val = this.value;
-        var ext = new RegExp("([A-Z][a-z])*\[0-9].{5,}");
-        var vide = '';
-        if (ext.test(val)) {
-            $(this).parent().children('#input_password_verify').fadeOut();
-        } else if (vide === val) {
-            $(this).parent().children('#input_password_verify').fadeOut();
-        } else {
-            $(this).parent().children('#input_password_verify').fadeIn();
-        }
-    });
-
-
-    /////////////////// navigation bar affix //////////////////////////////////
-    
-    setInterval(function() {
-
-        $('[data-affix]').attr('', function() {
-            var $top = $(this).attr('data-position');
-
-            $('#' + $(this).data('target')).css({'height': $top + 'px'});
-
-            var posScroll = $(document).scrollTop();
-
-            if (posScroll >= $top) {
-                $(this).addClass('transparent');
-            } else {
-                $(this).removeClass('transparent');
-            }
-        });
-    }, 5);
-
-});
-
-$(document).ready(function() {
     $('video').videoPlayer({
         'playerWidth': 0.95,
         'videoClass': 'video'
     });
 });
-
-/////////////////////////////////////////////////////////////////////
-
 ////////////////////: wow js animation //////////////////////////
 
 (function() {
@@ -529,7 +69,6 @@ $(document).ready(function() {
         }
         return -1;
     };
-
     Util = (function() {
         function Util() {
         }
@@ -544,11 +83,9 @@ $(document).ready(function() {
             }
             return custom;
         };
-
         Util.prototype.isMobile = function(agent) {
             return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(agent);
         };
-
         Util.prototype.createEvent = function(event, bubble, cancel, detail) {
             var customEvent;
             if (bubble == null) {
@@ -571,7 +108,6 @@ $(document).ready(function() {
             }
             return customEvent;
         };
-
         Util.prototype.emitEvent = function(elem, event) {
             if (elem.dispatchEvent != null) {
                 return elem.dispatchEvent(event);
@@ -581,7 +117,6 @@ $(document).ready(function() {
                 return elem["on" + event]();
             }
         };
-
         Util.prototype.addEvent = function(elem, event, fn) {
             if (elem.addEventListener != null) {
                 return elem.addEventListener(event, fn, false);
@@ -591,7 +126,6 @@ $(document).ready(function() {
                 return elem[event] = fn;
             }
         };
-
         Util.prototype.removeEvent = function(elem, event, fn) {
             if (elem.removeEventListener != null) {
                 return elem.removeEventListener(event, fn, false);
@@ -601,7 +135,6 @@ $(document).ready(function() {
                 return delete elem[event];
             }
         };
-
         Util.prototype.innerHeight = function() {
             if ('innerHeight' in window) {
                 return window.innerHeight;
@@ -609,11 +142,8 @@ $(document).ready(function() {
                 return document.documentElement.clientHeight;
             }
         };
-
         return Util;
-
     })();
-
     WeakMap = this.WeakMap || this.MozWeakMap || (WeakMap = (function() {
         function WeakMap() {
             this.keys = [];
@@ -630,7 +160,6 @@ $(document).ready(function() {
                 }
             }
         };
-
         WeakMap.prototype.set = function(key, value) {
             var i, item, j, len, ref;
             ref = this.keys;
@@ -644,11 +173,8 @@ $(document).ready(function() {
             this.keys.push(key);
             return this.values.push(value);
         };
-
         return WeakMap;
-
     })());
-
     MutationObserver = this.MutationObserver || this.WebkitMutationObserver || this.MozMutationObserver || (MutationObserver = (function() {
         function MutationObserver() {
             if (typeof console !== "undefined" && console !== null) {
@@ -660,14 +186,10 @@ $(document).ready(function() {
         }
 
         MutationObserver.notSupported = true;
-
         MutationObserver.prototype.observe = function() {
         };
-
         return MutationObserver;
-
     })());
-
     getComputedStyle = this.getComputedStyle || function(el, pseudo) {
         this.getPropertyValue = function(prop) {
             var ref;
@@ -683,9 +205,7 @@ $(document).ready(function() {
         };
         return this;
     };
-
     getComputedStyleRX = /(\-([a-z]){1})/g;
-
     this.WOW = (function() {
         WOW.prototype.defaults = {
             boxClass: 'wow',
@@ -695,7 +215,6 @@ $(document).ready(function() {
             live: true,
             callback: null
         };
-
         function WOW(options) {
             if (options == null) {
                 options = {};
@@ -720,7 +239,6 @@ $(document).ready(function() {
             }
             return this.finished = [];
         };
-
         WOW.prototype.start = function() {
             var box, j, len, ref;
             this.stopped = false;
@@ -786,7 +304,6 @@ $(document).ready(function() {
                 });
             }
         };
-
         WOW.prototype.stop = function() {
             this.stopped = true;
             this.util().removeEvent(window, 'scroll', this.scrollHandler);
@@ -795,13 +312,11 @@ $(document).ready(function() {
                 return clearInterval(this.interval);
             }
         };
-
         WOW.prototype.sync = function(element) {
             if (MutationObserver.notSupported) {
                 return this.doSync(this.element);
             }
         };
-
         WOW.prototype.doSync = function(element) {
             var box, j, len, ref, results;
             if (element == null) {
@@ -830,7 +345,6 @@ $(document).ready(function() {
             }
             return results;
         };
-
         WOW.prototype.show = function(box) {
             this.applyStyle(box);
             box.className = box.className + " " + this.config.animateClass;
@@ -844,7 +358,6 @@ $(document).ready(function() {
             this.util().addEvent(box, 'MSAnimationEnd', this.resetAnimation);
             return box;
         };
-
         WOW.prototype.applyStyle = function(box, hidden) {
             var delay, duration, iteration;
             duration = box.getAttribute('data-wow-duration');
@@ -856,7 +369,6 @@ $(document).ready(function() {
                 };
             })(this));
         };
-
         WOW.prototype.animate = (function() {
             if ('requestAnimationFrame' in window) {
                 return function(callback) {
@@ -868,7 +380,6 @@ $(document).ready(function() {
                 };
             }
         })();
-
         WOW.prototype.resetStyle = function() {
             var box, j, len, ref, results;
             ref = this.boxes;
@@ -879,7 +390,6 @@ $(document).ready(function() {
             }
             return results;
         };
-
         WOW.prototype.resetAnimation = function(event) {
             var target;
             if (event.type.toLowerCase().indexOf('animationend') >= 0) {
@@ -887,7 +397,6 @@ $(document).ready(function() {
                 return target.className = target.className.replace(this.config.animateClass, '').trim();
             }
         };
-
         WOW.prototype.customStyle = function(box, hidden, duration, delay, iteration) {
             if (hidden) {
                 this.cacheAnimationName(box);
@@ -913,9 +422,7 @@ $(document).ready(function() {
             });
             return box;
         };
-
         WOW.prototype.vendors = ["moz", "webkit"];
-
         WOW.prototype.vendorSet = function(elem, properties) {
             var name, results, value, vendor;
             results = [];
@@ -935,7 +442,6 @@ $(document).ready(function() {
             }
             return results;
         };
-
         WOW.prototype.vendorCSS = function(elem, property) {
             var j, len, ref, result, style, vendor;
             style = getComputedStyle(elem);
@@ -947,7 +453,6 @@ $(document).ready(function() {
             }
             return result;
         };
-
         WOW.prototype.animationName = function(box) {
             var animationName;
             try {
@@ -961,19 +466,15 @@ $(document).ready(function() {
                 return animationName;
             }
         };
-
         WOW.prototype.cacheAnimationName = function(box) {
             return this.animationNameCache.set(box, this.animationName(box));
         };
-
         WOW.prototype.cachedAnimationName = function(box) {
             return this.animationNameCache.get(box);
         };
-
         WOW.prototype.scrollHandler = function() {
             return this.scrolled = true;
         };
-
         WOW.prototype.scrollCallback = function() {
             var box;
             if (this.scrolled) {
@@ -1000,7 +501,6 @@ $(document).ready(function() {
                 }
             }
         };
-
         WOW.prototype.offsetTop = function(element) {
             var top;
             while (element.offsetTop === void 0) {
@@ -1012,7 +512,6 @@ $(document).ready(function() {
             }
             return top;
         };
-
         WOW.prototype.isVisible = function(box) {
             var bottom, offset, top, viewBottom, viewTop;
             offset = box.getAttribute('data-wow-offset') || this.config.offset;
@@ -1022,19 +521,14 @@ $(document).ready(function() {
             bottom = top + box.clientHeight;
             return top <= viewBottom && bottom >= viewTop;
         };
-
         WOW.prototype.util = function() {
             return this._util != null ? this._util : this._util = new Util();
         };
-
         WOW.prototype.disabled = function() {
             return !this.config.mobile && this.util().isMobile(navigator.userAgent);
         };
-
         return WOW;
-
     })();
-
 }).call(this);
 
 (function($) {
@@ -1042,8 +536,8 @@ $(document).ready(function() {
     $.fn.videoPlayer = function(options) { // videoPlayer est le nom de notre plugin
 
         var settings = {
-            playerWidth: '0.95', // Par défaut 95 %
-            videoClass: 'video'  // Classe CSS de la vidéo
+            playerWidth: '0.95', // Par dï¿½faut 95 %
+            videoClass: 'video'  // Classe CSS de la vidï¿½o
         }
 
 // Fusionne les options pour qu'elles soient prises en compte par le plugin
@@ -1059,11 +553,11 @@ $(document).ready(function() {
 // Variables de base
                 var $this = $(this);
                 var $settings = settings;
-                // Entourer la balise <video> d'une balise <div> ayant la classe CSS précisée en option
+                // Entourer la balise <video> d'une balise <div> ayant la classe CSS prï¿½cisï¿½e en option
                 $this.wrap('<div class="' + $settings.videoClass + '"></div>');
-                // Sélectionner la div contenant la vidéo pour faciliter son utilisation
+                // Sï¿½lectionner la div contenant la vidï¿½o pour faciliter son utilisation
                 var $that = $this.parent('.' + $settings.videoClass);
-                // Quelques autres variables diverses pour connaitre l'état du lecteur
+                // Quelques autres variables diverses pour connaitre l'ï¿½tat du lecteur
                 var $mclicking = false,
                         $vclicking = false,
                         $vidhover = false,
@@ -1124,74 +618,61 @@ $(document).ready(function() {
                 }
 
 
-// Ajustement de la largeur de la vidéo
+// Ajustement de la largeur de la vidï¿½o
                 $videoWidth = $this.width();
                 $that.width($videoWidth + 'px');
 // Ajustement de la largeur du lecteur en fonction des options
                 $that.find('.player').css({'width': ($settings.playerWidth * 100) + '%', 'left': ((100 - $settings.playerWidth * 100) / 2) + '%'});
-// Informations sur la vidéo
+// Informations sur la vidï¿½o
                 var $spc = $(this)[0], // Balise <video> en cours
-                        $duration = $spc.duration, // Durée de la vidéo
-                        $volume = $spc.volume, // Volume de la vidéo
+                        $duration = $spc.duration, // Durï¿½e de la vidï¿½o
+                        $volume = $spc.volume, // Volume de la vidï¿½o
                         currentTime;
 // Largeur de la barre de progression
                 var progWidth = $that.find('.progress').width();
-
-
                 var bufferLength = function() {
 
-                    // Les parties de la vidéo en tampon
+                    // Les parties de la vidï¿½o en tampon
                     var buffered = $spc.buffered;
-
-                    // Réinitialiser les zones en tampon à chaque appel de la fonction
+                    // Rï¿½initialiser les zones en tampon ï¿½ chaque appel de la fonction
                     $that.find('[class^=buffered]').remove();
-
                     // S'il existe un tampon
                     if (buffered.length > 0) {
 
-                        // On affecte sa taille à i
+                        // On affecte sa taille ï¿½ i
                         var i = buffered.length;
-
                         while (i--) {
-                            // Début et fin du tampon
+                            // Dï¿½but et fin du tampon
                             $maxBuffer = buffered.end(i);
                             $minBuffer = buffered.start(i);
-
-                            // Le décalage et la largeur de la partie en tampon
+                            // Le dï¿½calage et la largeur de la partie en tampon
                             var bufferOffset = ($minBuffer / $duration) * 100;
                             var bufferWidth = (($maxBuffer - $minBuffer) / $duration) * 100;
-
-                            // Insérer la zone en tampon dans le lecteur
+                            // Insï¿½rer la zone en tampon dans le lecteur
                             $('<div class="buffered"></div>').css({"left": bufferOffset + '%', 'width': bufferWidth + '%'}).appendTo($that.find('.progress'));
-
                         }
                     }
                 }
 
 // Lancer la fonction de gestion du tampon
                 bufferLength();
-
-// La fonction de gestion du temps, met à jour le compteur
+// La fonction de gestion du temps, met ï¿½ jour le compteur
                 var timeUpdate = function($ignore) {
 
-                    // Le temps actuel de la vidéo, basé sur la barre de progression
+                    // Le temps actuel de la vidï¿½o, basï¿½ sur la barre de progression
                     var time = Math.round(($('.progress-bar').width() / progWidth) * $duration);
-
-                    // Le temps "réel" de la vidéo
+                    // Le temps "rï¿½el" de la vidï¿½o
                     var curTime = $spc.currentTime;
-
-                    // Les secondes sont initialisées à 0 par défaut, les minutes correspondent à la durée divisée par 60
+                    // Les secondes sont initialisï¿½es ï¿½ 0 par dï¿½faut, les minutes correspondent ï¿½ la durï¿½e divisï¿½e par 60
                     // tminutes et tseconds sont les minutes et secondes totales
                     var seconds = 0,
                             minutes = Math.floor(time / 60),
                             tminutes = Math.round($duration / 60),
                             tseconds = Math.round(($duration) - (tminutes * 60));
-
-                    // Si le temps existe (enfin, la durée de la vidéo !)
+                    // Si le temps existe (enfin, la durï¿½e de la vidï¿½o !)
                     if (time) {
-                        // Les secondes valent la durée moins les minutes
+                        // Les secondes valent la durï¿½e moins les minutes
                         seconds = Math.round(time) - (60 * minutes);
-
                         // Si nous avons plus de 59 secondes
                         if (seconds > 59) {
                             // On augmente les minutes et on soustrait les secondes en trop
@@ -1204,10 +685,10 @@ $(document).ready(function() {
 
                     }
 
-                    // Mise à jour de la barre de progression
+                    // Mise ï¿½ jour de la barre de progression
                     updProgWidth = (curTime / $duration) * progWidth
 
-                    // Ajout des zéros initiaux pour les valeurs inférieures à 10
+                    // Ajout des zï¿½ros initiaux pour les valeurs infï¿½rieures ï¿½ 10
                     if (seconds < 10) {
                         seconds = '0' + seconds;
                     }
@@ -1221,28 +702,24 @@ $(document).ready(function() {
                         $that.find('.progress-button').css({'left': (updProgWidth - $that.find('.progress-button').width()) + 'px'});
                     }
 
-                    // Ajustement des durées
+                    // Ajustement des durï¿½es
                     $that.find('.ctime').html(minutes + ':' + seconds)
                     $that.find('.ttime').html(tminutes + ':' + tseconds);
-
-                    // En mode lecture, mise à jour des valeurs du tampon
+                    // En mode lecture, mise ï¿½ jour des valeurs du tampon
                     if ($spc.currentTime > 0 && $spc.paused == false && $spc.ended == false) {
                         bufferLength();
                     }
 
                 }
 
-// Lancer la fonction de temps au démarrage puis à chaque événement lié
+// Lancer la fonction de temps au dï¿½marrage puis ï¿½ chaque ï¿½vï¿½nement liï¿½
                 timeUpdate();
                 $spc.addEventListener('timeupdate', timeUpdate);
-
-
-// Lorsque l'utilisateur clique sur lecture, générer un événement clic
+// Lorsque l'utilisateur clique sur lecture, gï¿½nï¿½rer un ï¿½vï¿½nement clic
                 $that.find('.play-pause').bind('click', function() {
 
                     $that.find('.video_cover').css({'display': 'none'});
                     $that.find('.lecteur_name').animate({opacity: '0.6'}, 600);
-
                     // Affectation d'une variable de lecture
                     if ($spc.currentTime > 0 && $spc.paused == false && $spc.ended == false) {
                         $playing = false;
@@ -1262,59 +739,46 @@ $(document).ready(function() {
                     }
 
                 });
-
-
-// Affecter un événement sur la barre de progression pour que l'utilisateur puisse choisir un point précis de la vidéo
+// Affecter un ï¿½vï¿½nement sur la barre de progression pour que l'utilisateur puisse choisir un point prï¿½cis de la vidï¿½o
                 $that.find('.progress').bind('mousedown', function(e) {
 
                     // Lorsque l'on clique sur la barre
                     $mclicking = true;
-
-                    // Si la vidéo est en cours de lecture, on met en pause pendant le changement de timestamp
+                    // Si la vidï¿½o est en cours de lecture, on met en pause pendant le changement de timestamp
                     if ($playing == true) {
                         $spc.pause();
                     }
 
                     // Position x de la souris lors du clic
                     x = e.pageX - $that.find('.progress').offset().left;
-
-                    // Mise à jour du temps actuel
+                    // Mise ï¿½ jour du temps actuel
                     currentTime = (x / progWidth) * $duration;
-
                     $spc.currentTime = currentTime;
-
                 });
-
-// Si l'on clique sur le volume, déclencher un événement de changement de volume
+// Si l'on clique sur le volume, dï¿½clencher un ï¿½vï¿½nement de changement de volume
                 $that.find('.volume-bar-holder').bind('mousedown', function(e) {
 
-                    // On a cliqué sur le volume
+                    // On a cliquï¿½ sur le volume
                     $vclicking = true;
-
                     // Position y de la souris sur le slider
                     y = $that.find('.volume-bar-holder').height() - (e.pageY - $that.find('.volume-bar-holder').offset().top);
-
-                    // On annule (return false) si le clic se fait en dehors de la zone autorisée
+                    // On annule (return false) si le clic se fait en dehors de la zone autorisï¿½e
                     if (y < 0 || y > $(this).height()) {
                         $vclicking = false;
                         return false;
                     }
 
-                    // Ajustement des CSS pour refléter les modifications
+                    // Ajustement des CSS pour reflï¿½ter les modifications
                     $that.find('.volume-bar').css({'height': y + 'px'});
                     $that.find('.volume-button').css({'top': (y - ($that.find('.volume-button').height() / 2)) + 'px'});
-
-                    // Mise à jour de quelques variables
+                    // Mise ï¿½ jour de quelques variables
                     $spc.volume = $that.find('.volume-bar').height() / $(this).height();
                     $storevol = $that.find('.volume-bar').height() / $(this).height();
                     $volume = $that.find('.volume-bar').height() / $(this).height();
-
-                    // Animation de l'icône de volume
+                    // Animation de l'icï¿½ne de volume
                     volanim();
-
                 });
-
-// Gestion de l'animation de l'icône de volume
+// Gestion de l'animation de l'icï¿½ne de volume
                 var volanim = function() {
 
                     // Ajuster les classes CSS en fonction de la valeur du volume
@@ -1322,7 +786,6 @@ $(document).ready(function() {
 
                         var fi = parseInt(Math.floor(i * 10)) / 10;
                         var volid = (fi * 10) + 1;
-
                         if ($volume == 1) {
                             if ($volhover == true) {
                                 $that.find('.volume-icon').removeClass().addClass('volume-icon volume-icon-hover v-change-11');
@@ -1349,20 +812,17 @@ $(document).ready(function() {
                 }
 // Lancer l'animation
                 volanim();
-
 // Gestion du survol du bouton de volume
                 $that.find('.volume').hover(function() {
                     $volhover = true;
                 }, function() {
                     $volhover = false;
                 });
-
-
-// Pour des raisons d'ergonomie, nous affectons l'événement au document entier car nous considérons que l'utilisateur peut se déplacer en dehors de la vidéo
-// lors du déplacement des curseurs de progression et de volume
+// Pour des raisons d'ergonomie, nous affectons l'ï¿½vï¿½nement au document entier car nous considï¿½rons que l'utilisateur peut se dï¿½placer en dehors de la vidï¿½o
+// lors du dï¿½placement des curseurs de progression et de volume
                 $('body, html').bind('mousemove', function(e) {
 
-                    // Masquer le lecteur si la lecture est en cours et que la souris quitte la vidéo
+                    // Masquer le lecteur si la lecture est en cours et que la souris quitte la vidï¿½o
                     if ($begin == true) {
                         $that.hover(function() {
                             $that.find('.player').stop(true, false).animate({'opacity': '1'}, 0.5);
@@ -1371,34 +831,32 @@ $(document).ready(function() {
                         });
                     }
 
-                    // Contrôle de la barre de progression
+                    // Contrï¿½le de la barre de progression
                     if ($mclicking == true) {
 
-                        // Déplacement de la souris
+                        // Dï¿½placement de la souris
                         $draggingProgress = true;
-                        // La valeur à appliquer aux CSS (les changements se feront dans les conditions)
+                        // La valeur ï¿½ appliquer aux CSS (les changements se feront dans les conditions)
                         var progMove = 0;
                         // Largeur du bouton de progression (le bouton au bout de la barre)
                         var buttonWidth = $that.find('.progress-button').width();
-
-                        // La position de la souris détermine la valeur de x
+                        // La position de la souris dï¿½termine la valeur de x
                         x = e.pageX - $that.find('.progress').offset().left;
-
                         // Si la lecture est en cours
                         if ($playing == true) {
-                            // et que le temps actuel est inférieur à la durée
+                            // et que le temps actuel est infï¿½rieur ï¿½ la durï¿½e
                             if (currentTime < $duration) {
-                                // alors le bouton lecture/pause doit être sur pause
+                                // alors le bouton lecture/pause doit ï¿½tre sur pause
                                 $that.find('.play-pause').addClass('pause').removeClass('play');
                             }
                         }
 
 
-                        if (x < 0) { // Si x est inférieur à zéro, la barre de progression reste à zéro
+                        if (x < 0) { // Si x est infï¿½rieur ï¿½ zï¿½ro, la barre de progression reste ï¿½ zï¿½ro
                             progMove = 0;
                             $spc.currentTime = 0;
                         }
-                        else if (x > progWidth) { // Si x est supérieur à la largeur de la barre, alors progMove vaut progWidth
+                        else if (x > progWidth) { // Si x est supï¿½rieur ï¿½ la largeur de la barre, alors progMove vaut progWidth
                             $spc.currentTime = $duration;
                             progMove = progWidth;
                         }
@@ -1408,22 +866,19 @@ $(document).ready(function() {
                             $spc.currentTime = currentTime;
                         }
 
-                        // Changement de CSS en fonction des conditions précédentes
+                        // Changement de CSS en fonction des conditions prï¿½cï¿½dentes
                         $that.find('.progress-bar').css({'width': $progMove + 'px'});
                         $that.find('.progress-button').css({'left': ($progMove - buttonWidth) + 'px'});
-
                     }
 
-                    // Contrôle du volume
+                    // Contrï¿½le du volume
                     if ($vclicking == true) {
 
                         // Position de la souris sur le slider
                         y = $that.find('.volume-bar-holder').height() - (e.pageY - $that.find('.volume-bar-holder').offset().top);
-
-                        // Position à affecter au slider
+                        // Position ï¿½ affecter au slider
                         var volMove = 0;
-
-                        // Si la boîte contenant le contrôle du volume est masquée, on ne fait rien
+                        // Si la boï¿½te contenant le contrï¿½le du volume est masquï¿½e, on ne fait rien
                         if ($that.find('.volume-holder').css('display') == 'none') {
                             $vclicking = false;
                             return false;
@@ -1434,43 +889,34 @@ $(document).ready(function() {
                             $that.find('.volume-icon').addClass('volume-icon-hover');
                         }
 
-                        // Si y est inférieur à zéro, alors volMove vaut 0
+                        // Si y est infï¿½rieur ï¿½ zï¿½ro, alors volMove vaut 0
                         if (y < 0 || y == 0) {
 
                             $volume = 0;
                             volMove = 0;
-
                             $that.find('.volume-icon').removeClass().addClass('volume-icon volume-icon-hover v-change-11');
-
-                            // Si y est supérieur à la hauteur, alors volMove vaut la hauteur maximale
+                            // Si y est supï¿½rieur ï¿½ la hauteur, alors volMove vaut la hauteur maximale
                         } else if (y > $(this).find('.volume-bar-holder').height() || (y / $that.find('.volume-bar-holder').height()) == 1) {
 
                             $volume = 1;
                             volMove = $that.find('.volume-bar-holder').height();
-
                             $that.find('.volume-icon').removeClass().addClass('volume-icon volume-icon-hover v-change-1');
-
                         } else { // Sinon, volMove vaut y
 
                             $volume = $that.find('.volume-bar').height() / $that.find('.volume-bar-holder').height();
                             volMove = y;
-
                         }
 
-                        // Changement de CSS en fonction des conditions précédentes
+                        // Changement de CSS en fonction des conditions prï¿½cï¿½dentes
                         $that.find('.volume-bar').css({'height': volMove + 'px'});
                         $that.find('.volume-button').css({'top': (volMove + $that.find('.volume-button').height()) + 'px'});
-
                         // Lancer l'animation
                         volanim();
-
                         // Change et stocke le volume
-                        // La valeur stockée correspond à la valeur choisie par l'utilisateur
-                        // s'il veut couper le son, alors il retrouvera la dernière valeur s'il le remet
+                        // La valeur stockï¿½e correspond ï¿½ la valeur choisie par l'utilisateur
+                        // s'il veut couper le son, alors il retrouvera la derniï¿½re valeur s'il le remet
                         $spc.volume = $volume;
                         $storevol = $volume;
-
-
                     }
 
                     // Lors du survol de la barre de volume, faire apparaitre/disparaitre et modifier la classe CSS
@@ -1479,7 +925,6 @@ $(document).ready(function() {
 
                         $that.find('.volume-holder').stop(true, false).fadeOut(100);
                         $that.find('.volume-icon').removeClass('volume-icon-hover');
-
                     }
 
                     else {
@@ -1489,13 +934,11 @@ $(document).ready(function() {
 
 
                 });
-
-// À la fin de la lecture, le bouton lecture devient un bouton pause
+// ï¿½ la fin de la lecture, le bouton lecture devient un bouton pause
                 $spc.addEventListener('ended', function() {
 
                     $playing = false;
-
-                    // S'il n'y a pas de déplacement du curseur
+                    // S'il n'y a pas de dï¿½placement du curseur
                     if ($draggingProgress == false) {
                         $that.find('.play-pause').addClass('play').removeClass('pause');
                         $that.find('.video_cover').css({'display': 'block'});
@@ -1503,29 +946,27 @@ $(document).ready(function() {
                     }
 
                 });
-
-
-// Si l'utilisateur clique sur l'icône de volume, on coupe le son et on stocke la valeur du volume
-// lorsque l'on réactive le son, on lui affecte le volume stocké
+// Si l'utilisateur clique sur l'icï¿½ne de volume, on coupe le son et on stocke la valeur du volume
+// lorsque l'on rï¿½active le son, on lui affecte le volume stockï¿½
                 $that.find('.volume-icon').bind('mousedown', function() {
 
-                    $volume = $spc.volume; // Mise à jour du volume
+                    $volume = $spc.volume; // Mise ï¿½ jour du volume
 
-                    // Si besoin, on initialise la mémorisation du volume
+                    // Si besoin, on initialise la mï¿½morisation du volume
                     if (typeof $storevol == 'undefined') {
                         $storevol = $spc.volume;
                     }
 
-                    // Si le volume est supérieur à zéro
+                    // Si le volume est supï¿½rieur ï¿½ zï¿½ro
                     if ($volume > 0) {
-                        // alors il faut couper le son, le volume passe alors à zéro
+                        // alors il faut couper le son, le volume passe alors ï¿½ zï¿½ro
                         $spc.volume = 0;
                         $volume = 0;
                         $that.find('.volume-bar').css({'height': '0'});
                         volanim();
                     }
                     else {
-                        // sinon, on veut réactiver le son, on affecte au volume la valeur stockée
+                        // sinon, on veut rï¿½activer le son, on affecte au volume la valeur stockï¿½e
                         $spc.volume = $storevol;
                         $volume = $storevol;
                         $that.find('.volume-bar').css({'height': ($storevol * 100) + '%'});
@@ -1534,33 +975,23 @@ $(document).ready(function() {
 
 
                 });
-
-
-// Lorsque le bouton est relâché, clicking vaut false pour le volume volume et la barre de progression
-// D'autre part, on relance la vidéo si elle était en lecture avant le déplacement du curseur
-// Nous lançons aussi la gestion du tampon
                 $('body, html').bind('mouseup', function(e) {
 
                     $mclicking = false;
                     $vclicking = false;
                     $draggingProgress = false;
-
                     if ($playing == true) {
                         $spc.play();
                     }
 
                     bufferLength();
-
-
                 });
-
-
-// Vérifie le support du mode plein écran. Si ce mode n'est pas supporté, le bouton n'est pas affiché
+// Vï¿½rifie le support du mode plein ï¿½cran. Si ce mode n'est pas supportï¿½, le bouton n'est pas affichï¿½
                 if (!$spc.requestFullscreen && !$spc.mozRequestFullScreen && !$spc.webkitRequestFullScreen) {
                     $('.fullscreen').hide();
                 }
 
-// On appelle le mode plein écran en prévoyant les préfixes vendeurs
+// On appelle le mode plein ï¿½cran en prï¿½voyant les prï¿½fixes vendeurs
                 $('.fullscreen').click(function() {
 
                     if ($spc.requestFullscreen) {
@@ -1581,3 +1012,712 @@ $(document).ready(function() {
     }
 
 })(jQuery);
+
+(function($)
+{
+    $.fn.hoverFade = function(options)
+    {
+        var defauts =
+                {
+                    "vitesseFadeOut": "300",
+                    "vitesseFadeIn": "300"
+                };
+        var parametres = $.extend(defauts, options);
+        return this.each(function()
+        {
+            $(this).mouseover(function()
+            {
+                $(this).fadeOut(parametres.vitesseFadeOut, function()
+                {
+                    $(this).fadeIn(parametres.vitesseFadeIn);
+                });
+            });
+        });
+    };
+    $.fn.ouvrirElement = function(options)
+    {
+        var defauts =
+                {
+                    "vitesse": "300",
+                    "elementToOpen": ".barre_menu"
+
+                };
+        var parametres = $.extend(defauts, options);
+        return this.each(function() {
+            $(this).click(function() {
+                $(parametres.elementToOpen).slideToggle(parametres.vitesse);
+            });
+        });
+    };
+    $.fn.derouleBoutton = function(options)
+    {
+        var defauts =
+                {
+                    "vitesse": "300",
+                    "elementToOpen": ".groupe_element"
+
+                };
+        var parametres = $.extend(defauts, options);
+        return this.each(function() {
+            $(this).click(function() {
+                $(this).next(parametres.elementToOpen).slideToggle(parametres.vitesse);
+            });
+        });
+    };
+    $.fn.derouleMenu = function(options)
+    {
+        var defauts =
+                {
+                    "vitesse": "300",
+                    "elementToOpen": ".barre_menu"
+
+                };
+        var parametres = $.extend(defauts, options);
+        return this.each(function() {
+            $(this).click(function() {
+                $(this).children(parametres.elementToOpen).slideToggle(parametres.vitesse);
+            });
+        });
+    };
+    $.fn.closeObject = function(options)
+    {
+        var defauts =
+                {
+                    "vitesseFadeOut": "300"
+                };
+        var parametres = $.extend(defauts, options);
+        return this.each(function() {
+            $(this).click(function() {
+                $(this).parent().fadeOut(parametres.vitesseFadeOut);
+            });
+        });
+    };
+    $.fn.autoModal = function(options)
+    {
+        var defauts =
+                {
+                    "vitesseFadeIn": "300"
+                };
+        var parametres = $.extend(defauts, options);
+        return this.each(function() {
+            //$(this).children('.modale_contenaire').before('<span class="fermer_modale">&times;</span>');
+            $(this).before('<div class="modale_back"></div>');
+            $(this).prev('.modale_back').fadeIn(parametres.vitesseFadeIn);
+            $(this).prev('.modale_back').prev().hide();
+            $(this).fadeIn(parametres.vitesseFadeIn);
+            $(document).keypress(function(event) {
+                if (event.keyCode === 17) {
+                    $('.zs_modale').fadeOut(parametres.vitesseFadeOut);
+                    $('.modale_alert').fadeOut(parametres.vitesseFadeOut);
+                    $(".modale").fadeOut(parametres.vitesseFadeOut);
+                    $(".modale_back").fadeOut(parametres.vitesseFadeOut);
+                }
+            });
+            $(".modale_back").click(function() {
+                $(this).fadeOut(parametres.vitesseFadeOut)
+                $(this).next(".show_modale").fadeOut(parametres.vitesseFadeOut);
+            });
+        });
+    };
+    $.fn.fenetreModal = function(options)
+    {
+        var defauts =
+                {
+                    "vitesseFadeIn": "300",
+                    "vitesseFadeOut": "300"
+                };
+        var parametres = $.extend(defauts, options);
+        return this.each(function() {
+            $(this).children('.modale_contenaire').before('<span class="fermer_modale">&times;</span>');
+            $(this).before('<div class="modale"></div>');
+            $('[data-modal]').click(function(e) {
+                e.preventDefault();
+                $('#' + $(this).data('target')).fadeIn(parametres.vitesseFadeIn);
+                $('#' + $(this).data('target')).prev(".modale").fadeIn(parametres.vitesseFadeIn);
+            });
+            $(".fermer_modale").click(function(e) {
+                e.preventDefault();
+                $(".modale").fadeOut(parametres.vitesseFadeOut);
+                $(".modale_back").fadeOut(parametres.vitesseFadeOut);
+            });
+            $(".modale").click(function() {
+                $(this).fadeOut(parametres.vitesseFadeOut);
+                $(this).next('.zs_modale').fadeOut(parametres.vitesseFadeOut);
+            });
+            $(".modale_back").click(function() {
+                $(this).fadeOut(parametres.vitesseFadeOut);
+                $(".zs_modale").fadeOut(parametres.vitesseFadeOut);
+            });
+            $(".fermer_modale").click(function() {
+                $(this).parent().fadeOut(parametres.vitesseFadeOut);
+                $(".modale").fadeOut(parametres.vitesseFadeOut);
+                $(".modale_back").fadeOut(parametres.vitesseFadeOut);
+            });
+            $(".modale").click(function() {
+                $(this).fadeOut(parametres.vitesseFadeOut);
+                $(this).$(".modale_alert").fadeOut(parametres.vitesseFadeOut);
+                $(this).next("zs_modale").fadeOut(parametres.vitesseFadeOut);
+            });
+            $('[data-alert]').on('click', function(e) {
+                e.preventDefault();
+                $('#' + $(this).data('target')).fadeIn(parametres.vitesseFadeIn);
+                $(".modale").fadeIn(parametres.vitesseFadeIn);
+            });
+            $(document).keypress(function(event) {
+                if (event.keyCode === 17) {
+                    $('.zs_modale').fadeOut(parametres.vitesseFadeOut);
+                    $('.modale_alert').fadeOut(parametres.vitesseFadeOut);
+                    $(".modale").fadeOut(parametres.vitesseFadeOut);
+                    $(".modale_back").fadeOut(parametres.vitesseFadeOut);
+                }
+            });
+        });
+    };
+    $.fn.accordeonMenu = function(options)
+    {
+        var defauts =
+                {
+                    "vitesse": "300",
+                    "element": ".menu_accordeon"
+                };
+        var parametres = $.extend(defauts, options);
+        return this.each(function() {
+            $(this).on('click', function(e) {
+                e.preventDefault();
+                $(this).parent().children(parametres.element).slideUp(parametres.vitesse);
+                $('#' + $(this).data('target')).slideDown(parametres.vitesse);
+            });
+        });
+    };
+    $.fn.onglets = function(options)
+    {
+        var defauts =
+                {
+                    "vitesse": "300",
+                    "fontWeight": "bolder",
+                    "normatFont": "normal",
+                    "elementChild": ".corps-onglet"
+                };
+        var parametres = $.extend(defauts, options);
+        return this.each(function() {
+            $(this).on('click', function(e) {
+                e.preventDefault();
+                $(this).parent().parent().parent().children(parametres.elementChild).hide();
+                $('#' + $(this).data('target')).fadeIn(parametres.vitesse);
+            });
+            $(this).click(function(event) {
+                event.preventDefault();
+                $(this).parent().css({'font-weight': parametres.fontWeight});
+                $(this).parent().addClass('actif');
+                $(this).parent().prevUntil().removeClass('actif');
+                $(this).parent().nextUntil().removeClass('actif');
+                $(this).parent().prevUntil().css({'font-weight': parametres.normatFont});
+                $(this).parent().nextUntil().css({'font-weight': parametres.normatFont});
+            });
+        });
+    };
+    $.fn.progressBar = function(options)
+    {
+        var defauts =
+                {
+                    "vitesse": "300",
+                    "div": '<span class="progress"></span>',
+                    "childern": ".progress"
+                };
+        var data = $.extend(defauts, options);
+        return this.each(function() {
+            var $a = $(this).find('div').attr('data-value');
+            $(this).append(data.div);
+            $(this).children(data.children).text($a + '%');
+            $('#' + $(this).data('target')).animate({width: $a + '%'}, data.vitesse);
+        });
+    };
+    $.fn.navbarAffix = function(options)
+    {
+        var $top = $('[data-affix]').attr('data-position');
+        if ($top == 0) {
+            $top = 200;
+        }
+        var defauts =
+                {
+                    "vitesse": "300",
+                    "height": $top + 'px',
+                    "position": $top,
+                    "effet": "fixed"
+                };
+        var parametres = $.extend(defauts, options);
+        return this.each(function() {
+            $('#' + $(this).data('target')).css({'height': parametres.height}, 500);
+            setInterval(function() {
+                var posScroll = $(document).scrollTop();
+                if (posScroll >= $top) {
+                    $(this).addClass(parametres.effet);
+                } else {
+                    $(this).removeClass(parametres.effet);
+                }
+            }, 10);
+        });
+    };
+    $.fn.navBar = function(options)
+    {
+        var defauts =
+                {
+                    "vitesse": "300",
+                    "position": "100",
+                    "effet": "fixed"
+                };
+        var parametres = $.extend(defauts, options);
+        return this.each(function() {
+            var posScroll = $(document).scrollTop();
+            if (posScroll >= parametres.position) {
+                $(this).addClass(parametres.effet).fadeIn(parametres.vitesse);
+                $(this).addClass(parametres.effet).fadeIn(parametres.vitesse);
+                $('.barre_cover').fadeIn(parametres.vitesse);
+            } else {
+                $(this).removeClass(parametres.effet);
+                $(this).removeClass(parametres.effet);
+                $('.barre_cover').fadeOut(parametres.vitesse);
+            }
+        });
+    };
+    $.fn.zoneGauche = function(options)
+    {
+        var defauts =
+                {
+                    "vitesse": "300",
+                    "btOuvrir": ".bt_zone-gauche",
+                    "zsGauche": ".zone_gauche",
+                    "width": "310px"
+                };
+        var datas = $.extend(defauts, options);
+        return this.each(function() {
+            $('.bt_zone-gauche').before('<button class="zs_boutton bt_rond bt_effet-g bt_infos bt_close-zone">'
+                    + '<i class="icone icon_close" >'
+                    + '</i>'
+                    + '</button>');
+            $(this).before('<div class="zs_gauche-cover">'
+                    + '</div>');
+            $(datas.btOuvrir).on('click', function(e) {
+                e.preventDefault();
+                $(datas.zsGauche).animate({marginLeft: datas.width}, datas.vitesse);
+                $('.bt_close-zone').fadeIn(datas.vitesse);
+                $(this).hide();
+                $('.zone_droite').addClass('zone_droite-o');
+                $('.zs_gauche-cover').fadeIn(datas.vitesse);
+            });
+            $('.bt_close-zone').on('click', function(e) {
+                e.preventDefault();
+                $(datas.zsGauche).animate({marginLeft: '-' + datas.width}, datas.vitesse);
+                $(this).hide();
+                $('.bt_zone-gauche').fadeIn(datas.vitesse);
+                $('.zs_gauche-cover').fadeOut(datas.vitesse);
+                $('.zone_droite').removeClass('zone_droite-o');
+            });
+            $('.zs_gauche-cover').on('click', function(e) {
+                e.preventDefault();
+                $('.zone_gauche').animate({marginLeft: '-' + datas.width}, datas.vitesse);
+                $('.bt_close-zone').hide();
+                $('.bt_zone-gauche').fadeIn(datas.vitesse);
+                $(this).fadeOut(datas.vitesse);
+                $('.zone_droite').removeClass('zone_droite-o');
+            });
+            $(document).keypress(function(event) {
+                if (event.keyCode === 17) {
+                    $('.zone_gauche').animate({marginLeft: '-310px'}, datas.vitesse);
+                    $('.bt_close-zone').hide(datas.vitesse);
+                    $('.bt_zone-gauche').fadeIn(datas.vitesse);
+                    $('.zs_gauche-cover').fadeOut(datas.vitesse);
+                    $('.zone_droite').removeClass('zone_droite-o');
+                }
+            });
+        });
+    };
+    $.fn.zsOpenClose = function(options)
+    {
+        var defauts =
+                {
+                    "vitesseClose": "9500",
+                    "vitesseOpen": "slow",
+                    "element": ""
+                };
+        var datas = $.extend(defauts, options);
+        return this.each(function()
+        {
+            $(this).click(function(e) {
+                e.preventDefault();
+                $(this).parent().children(datas.element).fadeIn(datas.vitesseOpen, function()
+                {
+                    $(this).parent().children(datas.element).fadeOut(datas.vitesseClose);
+                });
+            });
+        });
+    };
+    $.fn.zsFadeToggle = function(options)
+    {
+        var defauts =
+                {
+                    "vitesse": "300",
+                    "elementToFade": " "
+                };
+        var parametres = $.extend(defauts, options);
+        return this.each(function() {
+            $(this).on('click', function(e) {
+                e.preventDefault();
+                $(this).parent().children(parametres.elementToFade).fadeToggle(parametres.vitesse);
+            });
+        });
+    };
+    $.fn.autoClignote = function(options)
+    {
+        var defauts =
+                {
+                    "vitesse": "1000",
+                    "refeshTime": "10"
+                };
+        var datas = $.extend(defauts, options);
+        return this.each(function() {
+            $(this).fadeOut(datas.vitesseFadeOut);
+        });
+    };
+    $.fn.zsScrollTop = function(options)
+    {
+        var defauts =
+                {
+                    "vitesse": "400",
+                    "refeshTime": "10",
+                    "position": "150",
+                    "animation": "-=450px"
+                };
+        var datas = $.extend(defauts, options);
+        return this.each(function() {
+            var posScroll = $(document).scrollTop();
+            if (posScroll >= datas.position) {
+                $(this).fadeIn(datas.vitesse);
+            } else {
+                $(this).fadeOut(datas.vitesse);
+            }
+            $(this).click(function() {
+                $('html, body').animate({
+                    scrollTop: datas.animation}, datas.vitesse);
+                return false;
+            });
+        });
+    };
+    $.fn.zsScrollBottom = function(options)
+    {
+        var defauts =
+                {
+                    "vitesse": "400",
+                    "refeshTime": "10",
+                    "animation": "+=450px"
+                };
+        var datas = $.extend(defauts, options);
+        return this.each(function() {
+            var posScroll = $(document).scrollTop();
+            var winHeight = $(document).height();
+            var a = winHeight - 300;
+            if (posScroll < a) {
+                $(this).fadeIn(datas.vitesse);
+            } else {
+                $(this).fadeOut(datas.vitesse);
+            }
+            $(this).click(function() {
+                $('html, body').animate({
+                    scrollTop: datas.animation}, datas.vitesse);
+                return false;
+            });
+        });
+    };
+    
+    $.fn.barChargement = function(options)
+    {
+        var defauts =
+                {
+                    "vitesse": "10000",
+                    "width": "100"
+                };
+        var datas = $.extend(defauts, options);
+        return this.each(function() {
+             $(this).css({'width': '1%'});            
+             $(this).animate({width: datas.width + '%'}, datas.vitesse);
+        });
+    };
+    $.fn.zsAncre = function(options)
+    {
+        var defauts =
+                {
+                    "vitesse": "300",
+                    "event": "click"
+                };
+        var data = $.extend(defauts, options);
+        return this.each(function() {
+            $(this).on(data.event, function() {
+                var id = $(this).attr("href");
+                $('html, body').animate({scrollTop: $(id).offset().top}, data.vitesse);
+                return false;
+            });
+        });
+    };
+    $.fn.imageHover = function(options)
+    {
+        var defauts =
+                {
+                    //"vitesse": "300",
+                    //"event": "click"
+                };
+        var data = $.extend(defauts, options);
+        return this.each(function() {
+            $(this).mouseover(function() {
+                $(this).children('.image_fond').animate({opacity: '0.6'});
+                $(this).children('.image_texte').animate({opacity: '1'});
+            });
+            $(this).mouseleave(function() {
+                $(this).children('.image_fond').animate({opacity: '0'});
+                $(this).children('.image_texte').animate({opacity: '0'});
+            });
+        });
+    };
+    $.fn.zsChat = function(options)
+    {
+        var defauts =
+                {
+                    "vitesse": "300",
+                    "event": "click"
+                };
+        var data = $.extend(defauts, options);
+        return this.each(function() {
+            $('.zs_chat').before('<div class="shadow_chat">'
+                    + '</div>');
+            $('.boutton_chat').on(data.event, function() {
+                $(this).parent().children('.mini_chat').animate({opacity: '1'}, data.vitesse);
+                $(this).parent().prev('.shadow_chat').fadeIn(data.vitesse);
+                $(this).parent().animate({marginRight: '150px', marginBottom: '210px'}, data.vitesse);
+            });
+            $('.shadow_chat').on(data.event, function() {
+                $(this).next('.zs_chat').animate({marginRight: '-50px', marginBottom: '-40px'}, data.vitesse);
+                $(this).next('.mini_chat').animate({opacity: '0.5'}, data.vitesse);
+                $(this).fadeOut(data.vitesse);
+                $(this).next('.zs_chat').children('.chat_content').fadeOut(data.vitesse);
+            });
+            $('[data-chat]').on(data.event, function() {
+                $('#' + $(this).data('target')).children('.mini_chat').animate({opacity: '1'}, data.vitesse);
+                $('#' + $(this).data('target')).prev('.shadow_chat').fadeIn(data.vitesse);
+                $('#' + $(this).data('target')).animate({marginRight: '150px', marginBottom: '210px'}, data.vitesse);
+            });
+            $('[data-tools]').on(data.event, function() {
+                $('#' + $(this).data('target')).fadeIn(data.vitesse);
+            });
+            $(document).keypress(function(event) {
+                if (event.keyCode === 17) {
+                    $('.shadow_chat').fadeOut(data.vitesse);
+                    $('.chat_content').fadeOut(data.vitesse);
+                    $('.zs_chat').animate({marginRight: '-30px', marginBottom: '-30px'}, data.vitesse);
+                    $('.mini_chat').animate({opacity: '0.5'}, data.vitesse);
+                }
+            });
+        });
+    };
+
+    $.fn.formCheck = function(options)
+    {
+        var defauts =
+                {
+                    "vitesse": "300",
+                    "event": "click"
+                };
+        var data = $.extend(defauts, options);
+        return this.each(function() {
+
+            $('.zs_image').after('<div class="zs_alert" id="input_image_verify">'
+                    + '<div class="alert_contenu fond_blanc hover scroll scroll_v">'
+                    + 'Erreur veuillez choisir une image valide'
+                    + '</div>'
+                    + '</div>');
+            $('.text').after('<div class="zs_alert" id="input_text_verify">'
+                    + '<div class="alert_contenu fond_blanc hover scroll scroll_v">'
+                    + 'Erreur veuillez entrer uniquement des entiers'
+                    + '</div>'
+                    + '</div>');
+            $('.textNumero').after('<div class="zs_alert" id="input_textNumero_verify">'
+                    + '<div class="alert_contenu fond_blanc hover scroll scroll_v">'
+                    + 'Erreur entrer uniquement des entiers et chiffres'
+                    + '</div>'
+                    + '</div>');
+            $('.email').after('<div class="zs_alert" id="input_email_verify">'
+                    + '<div class="alert_contenu fond_blanc hover scroll scroll_v">'
+                    + 'Erreur veuillez entrer une adresse valide'
+                    + '</div>'
+                    + '</div>');
+            $('.password').after('<div class="zs_alert" id="input_password_verify">'
+                    + '<div class="alert_contenu fond_blanc hover scroll scroll_v">'
+                    + 'Erreur 6 caracteres aumoins (1 chiffres, 1 minuscule, 1 majuscule) requis'
+                    + '</div>'
+                    + '</div>');
+            $('.zs_image').change(function() {
+
+                var ext = ['png', 'jpeg', 'jpg', 'gif', 'bmp'];
+                if ($.inArray($(this).val().split('.').pop().toLowerCase(), ext) === -1) {
+                    $(this).parent().children('#input_image_verify').fadeIn();
+                    $(this).parent().children('#preview').fadeOut();
+                } else {
+                    $(this).parent().children('#input_image_verify').fadeOut();
+                    $(this).parent().children('#preview').fadeIn();
+                    readURL(this);
+                }
+            });
+            $('.email').keyup(function() {
+                var val = this.value;
+                var ext = new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$");
+                var vide = '';
+                if (ext.test(val)) {
+                    $(this).parent().children('#input_email_verify').fadeOut();
+                } else if (vide === val) {
+                    $(this).parent().children('#input_email_verify').fadeOut();
+                } else {
+                    $(this).parent().children('#input_email_verify').fadeIn();
+                }
+            });
+            $('.textNumero').keyup(function() {
+                var val = this.value;
+                var ext = new RegExp("[A-Za-z]*\[0-9].{2,}");
+                var vide = '';
+                if (ext.test(val)) {
+                    $(this).parent().children('#input_textNumero_verify').fadeOut();
+                } else if (vide === val) {
+                    $(this).parent().children('#input_textNumero_verify').fadeOut();
+                } else {
+                    $(this).parent().children('#input_textNumero_verify').fadeIn();
+                }
+            });
+            $('.text').keyup(function() {
+                var val = this.value;
+                var ext = new RegExp("[A-Za-z].{2,}");
+                var vide = '';
+                if (ext.test(val)) {
+                    $(this).parent().children('#input_text_verify').fadeOut();
+                } else if (vide === val) {
+                    $(this).parent().children('#input_text_verify').fadeOut();
+                } else {
+                    $(this).parent().children('#input_text_verify').fadeIn();
+                }
+            });
+            $('.password').keyup(function() {
+                var val = this.value;
+                var ext = new RegExp("([A-Z][a-z])*\[0-9].{5,}");
+                var vide = '';
+                if (ext.test(val)) {
+                    $(this).parent().children('#input_password_verify').fadeOut();
+                } else if (vide === val) {
+                    $(this).parent().children('#input_password_verify').fadeOut();
+                } else {
+                    $(this).parent().children('#input_password_verify').fadeIn();
+                }
+            });
+        });
+    };
+
+    $.fn.effetZs = function(options)
+    {
+        var defauts =
+                {
+                    "vitesse": "300",
+                    "type": ""
+                };
+        var data = $.extend(defauts, options);
+        return this.each(function() {
+            $(this).append('<div class="' + data.element + '"></div>');
+        });
+    };
+
+    $.fn.clickToOpen = function(options)
+    {
+        var defauts =
+                {
+                    "vitesse": "300",
+                    "elementToOpen": "q"
+
+                };
+        var parametres = $.extend(defauts, options);
+        return this.each(function() {
+            $(this).click(function() {
+                $(parametres.elementToOpen).fadeToggle(parametres.vitesse);
+            });
+        });
+    };
+
+})(jQuery);
+
+
+$(document).ready(function() {
+    $('.centrer_texte').css({'text-align': 'center'});
+    $('a').hoverFade();
+    $('h1').hoverFade();
+    $('.pt_menu').ouvrirElement({
+        "vitesse": "fast",
+        "elementToOpen": ".barre_menu"
+    });
+    $('.barre_navigation').navBar();
+    $('.barre_navigation').navbarAffix();
+    $('[data-progress]').progressBar();
+    $('.show_modale').autoModal();
+    $('.zs_modale').fenetreModal();
+    $('[data-onglet]').onglets();
+    $('.zone_gauche').zoneGauche();
+    $(".alert_close").closeObject();
+    $('.show_modale').autoModal();
+    ///$('.modale_back').autoModal();
+    $(".close_accord").closeObject();
+    $(".bt_share").zsFadeToggle({
+        "vitesse": "slow",
+        "elementToFade": ".share_items"
+    });
+    $(".bt_alert_open").zsOpenClose({
+        "vitesseClose": "9500",
+        "vitesseOpen": "slow",
+        "element": ".alert_mssg"
+    });
+    $('.bt_deroule').derouleBoutton({
+        "vitesse": "fast",
+        "elementToOpen": ".groupe_element"
+    });
+    $('.mnd_deroule').derouleMenu({
+        "vitesse": "fast",
+        "elementToOpen": ".groupe_element"
+    });
+    $('.clignote').autoClignote({
+        "vitesse": "1000",
+        "refeshTime": "10"
+    });
+    $('.to_bottom').zsScrollBottom({
+        "vitesse": "400",
+        "refeshTime": "10",
+        "position": "150",
+        "animation": "+=450px"
+    });
+    $('.to_top').zsScrollTop({
+        "vitesse": "400",
+        "refeshTime": "10",
+        "position": "150",
+        "animation": "0"
+    });
+
+//    setInterval(function() {
+//        $('.ch_barre').barChargement({
+//            "vitesse": "2500",
+//            "width": "100"
+//        });
+//    }, 10000);
+
+    $('[data-accordeon]').accordeonMenu();
+
+    $('.cards_image').imageHover();
+    $('.ancre').zsAncre({
+        "vitesse": "300",
+        "event": "click"
+    });
+    $('.zs_chat').zsChat({
+        "vitesse": "300",
+        "event": "click"
+    });
+});
+                                 

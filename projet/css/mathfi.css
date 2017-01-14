@@ -31,5 +31,5 @@
     width: 102%;
     z-index: 99999999;
     padding:2px;
-    display: none;
+    display: block;
 }
