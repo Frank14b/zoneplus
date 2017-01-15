@@ -1,0 +1,65 @@
+$(document).ready(function() {
+    $('.centrer_texte').css({'text-align': 'center'});
+    $('a').hoverFade();
+    $('.pt_menu').ouvrirElement({
+        "vitesse": "fast",
+        "elementToOpen": ".barre_menu"
+    });
+    $('.barre_navigation').navBar();
+    $('.barre_navigation').navbarAffix();
+    $('[data-progress]').progressBar();
+    $('.show_modale').autoModal();
+    $('.zs_modale').fenetreModal();
+    $('[data-onglet]').onglets();
+    $('.zone_gauche').zoneGauche();
+
+    $(".alert_close").closeObject();
+    $('.show_modale').autoModal();
+    $('.modale_back').autoModal();
+    $(".close_accord").closeObject();
+
+    $(".bt_share").zsFadeToggle({
+        "vitesse": "slow",
+        "elementToFade": ".share_items"
+    });
+
+    $(".bt_alert_open").zsOpenClose({
+        "vitesseClose": "9500",
+        "vitesseOpen": "slow",
+        "element": ".alert_mssg"
+    });
+
+    $('.bt_deroule').ouvrirElement({
+        "vitesse": "fast",
+        "elementToOpen": ".groupe_element"
+    });
+
+    $('.mnd_deroule').ouvrirElement({
+        "vitesse": "fast",
+        "elementToOpen": ".groupe_element"
+    });
+
+    $('.clignote').autoClignote({
+        "vitesse": "1000",
+        "refeshTime": "10"
+    });
+
+    $('.to_top').zsScrollTop({
+        "vitesse": "400",
+        "refeshTime": "10",
+        "position": "150",
+        "animation": "-=450px"
+    });
+    $('.to_bottom').zsScrollBottom({
+        "vitesse": "400",
+        "refeshTime": "10",
+        "position": "150",
+        "animation": "-=450px"
+    });
+
+    $('.ch_barre').barChargement({
+        "vitesse": "6500",
+        "refeshTime": "0",
+        "width": "100"
+    });
+});

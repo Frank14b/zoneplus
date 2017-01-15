@@ -1,0 +1,486 @@
+
+.zs_boutton{
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    font-size: 0.7em;
+    font-weight: bold;
+    font-family:  "Calibri", Arial, Verdana, "Arial", Helvetica, sans-serif;
+    -webkit-font-family:  "Calibri", Arial, Verdana, "Arial", Helvetica, sans-serif;
+    border-radius: 2px;
+    border: 1px solid #999;
+    background-color: #444;
+    color: #fff;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+    -webkit-appearance: button;
+    white-space: normal!important;
+    text-transform: uppercase;
+    position: relative;
+    transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+    transition: .2s ease-out;
+    margin-bottom: 3px;
+    margin-top: 3px;
+
+    .bt_effet{
+        position: absolute;
+        top: 0;
+        left: 50%;
+        bottom: 0;
+        width: 0px;
+        transition-duration: 0.5s;
+        -webkit-transition-duration: 0.5s;
+    }
+
+    .bt_effet-g{
+        position: absolute;
+        top: 0;
+        left: 0%;
+        bottom: 0;
+        width: 0px;
+        transition-duration: 0.5s;
+        -webkit-transition-duration: 0.5s;
+    }
+
+    .bt_effet-d{
+        position: absolute;
+        top: 0;
+        left: 100%;
+        bottom: 0;
+        width: 0px;
+        transition-duration: 0.5s;
+        -webkit-transition-duration: 0.5s;
+    }
+}
+
+.zs_boutton:hover{
+    background-color: #aaa;
+    color: #fff;
+    border: 1px solid #999;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+    .bt_effet, .bt_effet-g, .bt_effet-d{
+        background: #fff;
+        opacity: 0.3;
+        border-radius: 60px;
+        width: 100%;
+        left: 0%;
+    }
+}
+
+.bt_danger{
+    background-color: red;
+    color: #fff;
+    border: 1px solid red;
+}
+.bt_infos, .bt_share{
+    background-color: #0275D8;
+    color: #fff;
+    border: 1px solid #58A0DF;
+}
+.bt_succes{
+    background-color: green;
+    color: #fff;
+    border: 1px solid green;
+}
+.bt_alert{
+    background-color: orange;
+    color: #fff;
+    border: 1px solid orange;
+}
+
+.bt_arrondis{
+    border-radius: 100px;
+}
+.bt_rond, .bt_share{
+    border-radius: 50%;
+    font-size: 1.2em;
+    .icone{
+        padding: 3px;
+    }
+}
+.bt_fb{
+    background-color: #0275D8;
+    color: #fff;
+    border: 1px solid #58A0DF;
+}
+.bt_gplus{
+    background-color: red;
+    color: #fff;
+    border: 1px solid red;
+}
+.bt_twitter{
+    background-color: skyblue;
+    color: #fff;
+    border: 1px solid skyblue;
+}
+.bt_youtube{
+    background-color: darkred;
+    color: #fff;
+    border: 1px solid darkred;
+}
+.bt_pinterest{
+    background-color: darkblue;
+    color: #fff;
+    border: 1px solid darkblue;
+}
+.bt_instagram{
+    background-color: darkmagenta;
+    color: #fff;
+    border: 1px solid darkmagenta;
+}
+
+.bt_arrondis{
+    .icone{
+        font-size: 1.5em;
+        float: left;
+        margin-right: 5px;
+        margin-bottom: -5px;
+        margin-top: -1.5px;
+    }
+}
+
+.gd_bt{
+    font-size: 1.2em;
+    .icone{
+        padding: 3px;
+    }
+}
+
+.bt_share{
+    z-index: 999;
+}
+
+.zs_share{
+    z-index: 99;
+    .share_items{
+        position: relative;
+        li{
+            display: inline-block;
+
+            .zs_boutton{
+                border-radius: 60%;
+
+                font-size: 1.2em;
+                .icone{
+                    padding: 3px;
+                }
+            }
+        }
+    }
+    .sh_fixe{
+        position: fixed;
+        top: 30%;
+        z-index: 999 !important;
+
+        li{
+            display: inherit;
+            .zs_boutton{
+                border-radius: 60%;
+
+                font-size: 1.2em;
+                .icone{
+                    padding: 3px;
+                }
+            }
+        }
+    }
+
+    .sh_droit{
+        float: right;
+        right: 10px;
+    }
+    .sh_gauche{
+        float: left;
+        margin-left: -40px;
+        left: 10px;
+    }
+}
+
+.share_items{
+    display: none;
+}
+
+.actif{
+    display: block;
+}
+
+.to_top{
+    position: fixed;
+    bottom: 150px;
+    right: 30px;
+    opacity: 0.5;
+}
+
+.to_bottom{
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    opacity: 0.5;
+}
+
+/////////////////// Pagination ////////////////////////
+
+.pagination{
+
+    .lien_pg{
+        cursor: pointer;
+        padding: 10px;
+        border: none;
+        font-size: 0.7em;
+        font-weight: bold;
+        font-family:  "Calibri", Arial, Verdana, "Arial", Helvetica, sans-serif;
+        -webkit-font-family:  "Calibri", Arial, Verdana, "Arial", Helvetica, sans-serif;
+        border: 1px solid #999;
+        background-color: #444;
+        color: #fff;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+        -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+        -webkit-appearance: button;
+        white-space: normal!important;
+        text-transform: uppercase;
+        position: relative;
+        transition-duration: 0.5s;
+        -webkit-transition-duration: 0.5s;
+        transition: .2s ease-out;
+        margin-bottom: 3px;
+        margin-top: 3px;
+    }
+
+    .lien_pg:hover{
+        background-color: #fff;
+        color: #555;
+    }
+
+}
+.pg_rond{
+    .lien_pg{
+        border-radius: 50%;
+    }
+}
+.pg_arrondis{
+    .lien_pg{
+        border-radius: 5px;
+    }
+}
+
+///////////////////: boutton deroulant ////////////////////
+
+.bt_deroulant{
+    position: relative;
+    float: left;
+    padding: 8px;
+    margin: 3px;
+    .zs_boutton{
+        border-radius: 3px 0px 0px 3px;
+        margin-top: 0px;
+        margin-bottom: 0px; 
+    }
+    .bt_deroule{
+        cursor: pointer;
+        padding: 10px;
+        border: none;
+        font-size: 0.70em;
+        font-weight: bold;
+        font-family:  "Calibri", Arial, Verdana, "Arial", Helvetica, sans-serif;
+        -webkit-font-family:  "Calibri", Arial, Verdana, "Arial", Helvetica, sans-serif;
+        border: 1px solid #999;
+        border-left: 1px solid #fff;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+        -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+        -webkit-appearance: button;
+        white-space: normal!important;
+        text-transform: uppercase;
+        position: relative;
+        transition-duration: 0.5s;
+        -webkit-transition-duration: 0.5s;
+        transition: .2s ease-out;
+        margin-bottom: 3px;
+        margin-top: 3px;
+        border-radius: 0px 3px 3px 0px
+    }
+
+    .groupe_element{
+
+        display: none;  
+
+        li{
+            display: inherit;
+            position: relative;
+            margin-left: -37px;
+
+            .btd_element{
+                text-decoration: none;
+                float: left;
+                width: 100%;
+                position: relative;
+                margin: -5px;
+                margin-top: 0px;
+                margin-bottom: 0px;
+                padding: 4px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                border-radius: 0px;
+                background-color: #f5f5f5;
+                box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+                -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+            }
+            .btd_element:hover{
+                background-color: #fff;
+                box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+                -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+            }
+        }
+
+    }
+
+    .bt_danger{
+        background-color: red;
+        color: #fff;
+        border: 1px solid red;
+        border-left: 1px solid #fff;
+    }
+    .bt_infos, .bt_share{
+        background-color: #0275D8;
+        color: #fff;
+        border: 1px solid #58A0DF;
+        border-left: 1px solid #fff;
+    }
+    .bt_succes{
+        background-color: green;
+        color: #fff;
+        border: 1px solid green;
+        border-left: 1px solid #fff;
+    }
+    .bt_alert{
+        background-color: orange;
+        color: #fff;
+        border: 1px solid orange;
+        border-left: 1px solid #fff;
+    }
+
+    .bt_arrondis{
+        border-radius: 100px;
+    }
+    .bt_rond, .bt_share{
+        border-radius: 50%;
+        font-size: 1.2em;
+        .icone{
+            padding: 3px;
+        }
+    }
+    .bt_fb{
+        background-color: #0275D8;
+        color: #fff;
+        border: 1px solid #58A0DF;
+    }
+    .bt_gplus{
+        background-color: red;
+        color: #fff;
+        border: 1px solid red;
+    }
+    .bt_twitter{
+        background-color: skyblue;
+        color: #fff;
+        border: 1px solid skyblue;
+    }
+    .bt_youtube{
+        background-color: darkred;
+        color: #fff;
+        border: 1px solid darkred;
+    }
+    .bt_pinterest{
+        background-color: darkblue;
+        color: #fff;
+        border: 1px solid darkblue;
+    }
+    .bt_instagram{
+        background-color: darkmagenta;
+        color: #fff;
+        border: 1px solid darkmagenta;
+    }
+
+    .bt_arrondis{
+        .icone{
+            font-size: 1.5em;
+            float: left;
+            margin-right: 5px;
+            margin-bottom: -5px;
+            margin-top: -1.5px;
+        }
+    }
+
+    .gd_bt{
+        font-size: 1.2em;
+        .icone{
+            padding: 3px;
+        }
+    }
+}
+.btd_rond{
+    .zs_boutton{
+        border-radius: 60px 0px 0px 60px;
+    }
+    .bt_deroule{
+        border-radius: 0px 60px 60px 0px;  
+    }
+}
+
+.bt_infos-o{
+    background-color: #fff;
+    border:1px solid #0275D8;
+    color: #666;
+}
+.bt_danger-o{
+    background-color: #fff;
+    border:1px solid red;
+    color: #666;
+}
+.bt_succes-o{
+    background-color: #fff;
+    border:1px solid green;
+    color: #666;
+}
+.bt_alert-o{
+    background-color: #fff;
+    border:1px solid orange;
+    color: #666;
+}
+.bt_defaut-o{
+    background-color: #fff;
+    border:1px solid #666;
+    color: #666;
+}
+
+.zs_boutton:hover{
+    box-shadow: 0 12px 17px 0 rgba(0,0,0,.16),0 12px 20px 0 rgba(0,0,0,.12);
+    -webkit-box-shadow: 0 12px 17px 0 rgba(0,0,0,.16),0 12px 20px 0 rgba(0,0,0,.12);
+}
+
+.bt_degrader_orange{
+    box-shadow: 0 12px 17px 0 rgba(0,0,0,.16),0 12px 20px 0 rgba(0,0,0,.12);
+    -webkit-box-shadow: 0 12px 17px 0 rgba(0,0,0,.16),0 12px 20px 0 rgba(0,0,0,.12);
+    background: linear-gradient(120deg , #fff 5%, orange 50%, #fff 50%, #fff 75%, orange 75%);
+    background-size: 100px 100px 100px;
+    color: #444;
+    font-weight: bold;
+}
+
+.bt_degrader_bleu{
+    box-shadow: 0 12px 17px 0 rgba(0,0,0,.16),0 12px 20px 0 rgba(0,0,0,.12);
+    -webkit-box-shadow: 0 12px 17px 0 rgba(0,0,0,.16),0 12px 20px 0 rgba(0,0,0,.12);
+    background: linear-gradient(120deg , #fff 5%, #0275D8 50%, #fff 50%, #fff 75%, #0275D8 75%);
+    background-size: 100px 100px 100px;
+    color: #444;
+    font-weight: bold;
+}
+.bt_maison{
+    border-radius: 60%;
+    box-shadow: 0 12px 17px 0 rgba(0,0,0,.16),0 12px 20px 0 rgba(0,0,0,.12);
+    -webkit-box-shadow: 0 12px 17px 0 rgba(0,0,0,.16),0 12px 20px 0 rgba(0,0,0,.12);
+    font-size: 1.1em;
+}
+
+
+//////////////////////////////////////////////////////
