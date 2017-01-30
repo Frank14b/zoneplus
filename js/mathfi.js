@@ -9,14 +9,14 @@ $(document).ready(function() {
         "vitesse": "300",
         "elementToOpen": ".zone_mathfi"
     });
-    
+
     setTimeout(function() {
         $('.ch_barre').barChargement({
             "vitesse": "20000",
             "width": "100"
         });
     }, 2500);
-    
+
     setTimeout(function() {
         $('.preview').fadeOut('slow');
     }, 5000);
@@ -229,7 +229,6 @@ $(document).ready(function() {
                 var capital = document.getElementById(data.capital).value;
                 var taux = document.getElementById(data.taux).value;
                 var duree = document.getElementById(data.duree).value;
-                var periode = document.getElementById(data.periode).value;
 
                 if (document.getElementById(data.operationInteret).checked) {
                     if (Number(capital) <= 0 || Number(duree) <= 0 || Number(taux) <= 0) {
@@ -285,6 +284,123 @@ $(document).ready(function() {
                         return false;
                     }
                     ;
+                } else {
+                    $('#' + data.divResultat).text('Veuillez selectioner une opération');
+                }
+            });
+        });
+    };
+})(jQuery);
+
+
+(function($)
+{
+    $.fn.escompteCalc = function(options)
+    {
+        var defauts =
+                {
+                    "capital": "ca",
+                    "interet": "is",
+                    "taux": "ta",
+                    "duree": "du",
+                    "periode": "periode",
+                    "divResultat": "resultat",
+                    "operationCapital": "capital",
+                    "operationInteret": "Interet",
+                    "operationDuree": "Duree",
+                    "operationTaux": "Taux",
+                    "annee": "a",
+                    "mois": "m",
+                    "jours": "j",
+                    "messageErreur": "Veuillez Saisir des Données Valides (supérieures à 0)"
+                };
+        var data = $.extend(defauts, options);
+        return this.each(function() {
+            $(this).on('click', function(e) {
+                e.preventDefault();
+                var interet = document.getElementById(data.interet).value;
+                var capital = document.getElementById(data.capital).value;
+                var taux = document.getElementById(data.taux).value;
+                var duree = document.getElementById(data.duree).value;
+                var periode = document.getElementById(data.periode).value;
+
+                if (document.getElementById(data.operationInteret).checked) {
+                    if (Number(capital) <= 0 || Number(duree) <= 0 || Number(taux) <= 0) {
+                        $('#' + data.divResultat).text(data.messageErreur);
+                    } else {
+                        var result = (capital * duree * taux) / 100;
+                        if (periode === data.annee) {
+                            var is = result;
+                            $('#' + data.divResultat).text('L\'interet simple est de : ' + is);
+                        } else if (periode === data.mois) {
+                            var is = result / 12;
+                            $('#' + data.divResultat).text('L\'interet simple est de : ' + is);
+                        } else if (periode === data.jours) {
+                            var is = result / 36;
+                            $('#' + data.divResultat).text('L\'interet simple est de : ' + is);
+                        } else {
+                            $('#' + data.divResultat).text('Veuillez spécifier une période');
+                        }
+                        return false;
+                    }
+                } else if (document.getElementById(data.operationTaux).checked) {
+                    if (Number(capital) <= 0 || Number(duree) <= 0 || Number(interet) <= 0) {
+                        $('#' + data.divResultat).text(data.messageErreur);
+                    } else {
+                        var result = (interet * 100) / (capital * duree);
+                        if (periode === data.annee) {
+                            var is = result;
+                            $('#' + data.divResultat).text('Le Taux  est de : ' + is + '%');
+                        } else if (periode === data.mois) {
+                            var is = result * 12;
+                            $('#' + data.divResultat).text('Le Taux est de : ' + is + '%');
+                        } else if (periode === data.jours) {
+                            var is = result * 36;
+                            $('#' + data.divResultat).text('Le Taux est de : ' + is + '%');
+                        } else {
+                            $('#' + data.divResultat).text('Veuillez spécifier une période');
+                        }
+                        return false;
+                    }
+                } else if (document.getElementById(data.operationDuree).checked) {
+                    if (Number(capital) <= 0 || Number(taux) <= 0 || Number(interet) <= 0) {
+                        $('#' + data.divResultat).text(data.messageErreur);
+                    } else {
+                        var result = (interet * 100) / (capital * taux);
+                        if (periode === data.annee) {
+                            var is = result;
+                            $('#' + data.divResultat).text('La Durée  est de : ' + is + 'ans');
+                        } else if (periode === data.mois) {
+                            var is = result * 12;
+                            $('#' + data.divResultat).text('La Durée est de : ' + is + 'mois');
+                        } else if (periode === data.jours) {
+                            var is = result * 36;
+                            $('#' + data.divResultat).text('La Durée est de : ' + is + 'jours');
+                        } else {
+                            $('#' + data.divResultat).text('Veuillez spécifier une période');
+                        }
+                        return false;
+                    }
+                } else if (document.getElementById(data.operationCapital).checked) {
+                    if (Number(taux) <= 0 || Number(duree) <= 0 || Number(interet) <= 0) {
+                        $('#' + data.divResultat).text(data.messageErreur);
+                    } else {
+                        var result = (interet * 100) / (duree * taux);
+                        if (periode === data.annee) {
+                            var is = result;
+                            $('#' + data.divResultat).text('Le Capital  est de : ' + is + 'UNI');
+                        } else if (periode === data.mois) {
+                            var is = result * 12;
+                            $('#' + data.divResultat).text('Le Capital est de : ' + is + 'UNI');
+                        } else if (periode === data.jours) {
+                            var is = result * 36;
+                            $('#' + data.divResultat).text('Le Capital est de : ' + is + 'UNI');
+                        } else {
+                            $('#' + data.divResultat).text('Veuillez spécifier une période');
+                        }
+                        return false;
+                    }
+
                 } else {
                     $('#' + data.divResultat).text('Veuillez selectioner une opération');
                 }

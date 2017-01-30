@@ -9,10 +9,11 @@ $(document).ready(function() {
     $('.bt_effet').effetZs({
         "type": "bt_effet"
     });
+
     $('.lien_effet').append('<div class="lien_effet"></div>');
     $('.mnd_effet').append('<div class="mnd_effet"></div>');
     $('.mlc_effet').append('<div class="mlc_effet"></div>');
-    $('.mn_boutton').before('<span class="pt_menu icone arrow_carrot-2down" title="Menu"></span>');
+    $('.mn_boutton').before('<span class="pt_menu icone social_flickr" title="Menu"></span>');
     $('.menu_accordeon').append('<a class="lien_accordeon close_accord"><i class="icone arrow_carrot-2up"></i></a>');
     $('.zs_radio').after('<span class="zs-radio"></span>');
     $('.zs_checkbox').after('<span class="zs-check"></span>');
@@ -35,6 +36,7 @@ $(function() {
         $(this).css('height', hiddenDiv.height());
     });
 });
+
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -1039,13 +1041,17 @@ $(document).ready(function() {
         var defauts =
                 {
                     "vitesse": "300",
-                    "elementToOpen": ".barre_menu"
+                    "elementToOpen": ".barre_menu",
+                    "event": "mouseover"
 
                 };
         var parametres = $.extend(defauts, options);
         return this.each(function() {
-            $(this).click(function() {
-                $(parametres.elementToOpen).slideToggle(parametres.vitesse);
+            $(this).on(parametres.event, function() {
+                $(parametres.elementToOpen).fadeIn(parametres.vitesse);
+            });
+            $(this).on('click', function() {
+                $(parametres.elementToOpen).fadeToggle(parametres.vitesse);
             });
         });
     };
@@ -1054,13 +1060,19 @@ $(document).ready(function() {
         var defauts =
                 {
                     "vitesse": "300",
-                    "elementToOpen": ".groupe_element"
+                    "elementToOpen": ".groupe_element",
+                    "event": "mouseover"
 
                 };
         var parametres = $.extend(defauts, options);
         return this.each(function() {
-            $(this).click(function() {
-                $(this).next(parametres.elementToOpen).slideToggle(parametres.vitesse);
+            $(this).on(parametres.event, function() {
+                $(this).on(parametres.event, function() {
+                    $(this).next(parametres.elementToOpen).slideDown(parametres.vitesse);
+                });
+                $(this).on('click', function() {
+                    $(this).next(parametres.elementToOpen).slideToggle(parametres.vitesse);
+                });
             });
         });
     };
@@ -1069,12 +1081,16 @@ $(document).ready(function() {
         var defauts =
                 {
                     "vitesse": "300",
-                    "elementToOpen": ".barre_menu"
+                    "elementToOpen": "",
+                    "event": "mouseover"
 
                 };
         var parametres = $.extend(defauts, options);
         return this.each(function() {
-            $(this).click(function() {
+            $(this).on(parametres.event, function() {
+                $(this).children(parametres.elementToOpen).slideDown(parametres.vitesse);
+            });
+            $(this).on('click', function() {
                 $(this).children(parametres.elementToOpen).slideToggle(parametres.vitesse);
             });
         });
@@ -1083,11 +1099,12 @@ $(document).ready(function() {
     {
         var defauts =
                 {
-                    "vitesseFadeOut": "300"
+                    "vitesseFadeOut": "300",
+                    "event": "mouseover"
                 };
         var parametres = $.extend(defauts, options);
         return this.each(function() {
-            $(this).click(function() {
+            $(this).on(parametres.event, function() {
                 $(this).parent().fadeOut(parametres.vitesseFadeOut);
             });
         });
@@ -1100,7 +1117,6 @@ $(document).ready(function() {
                 };
         var parametres = $.extend(defauts, options);
         return this.each(function() {
-            //$(this).children('.modale_contenaire').before('<span class="fermer_modale">&times;</span>');
             $(this).before('<div class="modale_back"></div>');
             $(this).prev('.modale_back').fadeIn(parametres.vitesseFadeIn);
             $(this).prev('.modale_back').prev().hide();
@@ -1124,13 +1140,15 @@ $(document).ready(function() {
         var defauts =
                 {
                     "vitesseFadeIn": "300",
-                    "vitesseFadeOut": "300"
+                    "vitesseFadeOut": "300",
+                    "event": "mouseover"
                 };
         var parametres = $.extend(defauts, options);
         return this.each(function() {
-            $(this).children('.modale_contenaire').before('<span class="fermer_modale">&times;</span>');
+            $(this).children('.modale_contenaire').before('<button class="zs_boutton fermer_modale infos_bulle" data-infos="Fermer fenetre modale" '
+                    + ' style="background: red; border-color: red;">&times;&nbsp; Fermer </button>');
             $(this).before('<div class="modale"></div>');
-            $('[data-modal]').click(function(e) {
+            $('[data-modal]').on(parametres.event, function(e) {
                 e.preventDefault();
                 $('#' + $(this).data('target')).fadeIn(parametres.vitesseFadeIn);
                 $('#' + $(this).data('target')).prev(".modale").fadeIn(parametres.vitesseFadeIn);
@@ -1155,10 +1173,10 @@ $(document).ready(function() {
             });
             $(".modale").click(function() {
                 $(this).fadeOut(parametres.vitesseFadeOut);
-                $(this).$(".modale_alert").fadeOut(parametres.vitesseFadeOut);
-                $(this).next("zs_modale").fadeOut(parametres.vitesseFadeOut);
+                $(this).next(".modale_alert").fadeOut(parametres.vitesseFadeOut);
+                $(this).next(".zs_modale").fadeOut(parametres.vitesseFadeOut);
             });
-            $('[data-alert]').on('click', function(e) {
+            $('[data-alert]').on(parametres.event, function(e) {
                 e.preventDefault();
                 $('#' + $(this).data('target')).fadeIn(parametres.vitesseFadeIn);
                 $(".modale").fadeIn(parametres.vitesseFadeIn);
@@ -1178,14 +1196,17 @@ $(document).ready(function() {
         var defauts =
                 {
                     "vitesse": "300",
-                    "element": ".menu_accordeon"
+                    "element": ".menu_accordeon",
+                    "event": "mouseover"
                 };
         var parametres = $.extend(defauts, options);
         return this.each(function() {
-            $(this).on('click', function(e) {
+            $(this).on(parametres.event, function(e) {
                 e.preventDefault();
-                $(this).parent().children(parametres.element).slideUp(parametres.vitesse);
+                // $(this).parent().children(parametres.element).slideUp(parametres.vitesse);
                 $('#' + $(this).data('target')).slideDown(parametres.vitesse);
+                $('#' + $(this).data('target')).prevUntil(parametres.element).slideUp(parametres.vitesse);
+                $('#' + $(this).data('target')).nextUntil(parametres.element).slideUp(parametres.vitesse);
             });
         });
     };
@@ -1196,17 +1217,18 @@ $(document).ready(function() {
                     "vitesse": "300",
                     "fontWeight": "bolder",
                     "normatFont": "normal",
-                    "elementChild": ".corps-onglet"
+                    "elementChild": ".corps-onglet",
+                    "event": "mouseover"
                 };
         var parametres = $.extend(defauts, options);
         return this.each(function() {
-            $(this).on('click', function(e) {
+            $(this).on(parametres.event, function(e) {
                 e.preventDefault();
                 $(this).parent().parent().parent().children(parametres.elementChild).hide();
                 $('#' + $(this).data('target')).fadeIn(parametres.vitesse);
             });
-            $(this).click(function(event) {
-                event.preventDefault();
+            $(this).on(parametres.event, function(e) {
+                e.preventDefault();
                 $(this).parent().css({'font-weight': parametres.fontWeight});
                 $(this).parent().addClass('actif');
                 $(this).parent().prevUntil().removeClass('actif');
@@ -1221,15 +1243,20 @@ $(document).ready(function() {
         var defauts =
                 {
                     "vitesse": "300",
-                    "div": '<span class="progress"></span>',
-                    "childern": ".progress"
+                    "div": '<span class="progress" style="color: #222; opacity: 0.9;"></span>',
+                    "childern": ".progress",
+                    "refreshTime": "1000"
                 };
         var data = $.extend(defauts, options);
         return this.each(function() {
-            var $a = $(this).find('div').attr('data-value');
+            var $this = $(this);
             $(this).append(data.div);
-            $(this).children(data.children).text($a + '%');
-            $('#' + $(this).data('target')).animate({width: $a + '%'}, data.vitesse);
+            setInterval(function() {
+                var $a = $this.find('div').attr('data-value');
+                $this.children(data.children).text($a + '%');
+                $('#' + $this.data('target')).animate({width: $a + '%'}, data.vitesse);
+
+            }, data.refreshTime);
         });
     };
     $.fn.navbarAffix = function(options)
@@ -1240,22 +1267,24 @@ $(document).ready(function() {
         }
         var defauts =
                 {
-                    "vitesse": "300",
+                    "vitesse": "",
                     "height": $top + 'px',
                     "position": $top,
-                    "effet": "fixed"
+                    "effet": "",
+                    "refreshTime": ""
                 };
         var parametres = $.extend(defauts, options);
         return this.each(function() {
-            $('#' + $(this).data('target')).css({'height': parametres.height}, 500);
+            var $this = $(this);
             setInterval(function() {
+                $('#' + $this.data('target')).css({'height': parametres.height}, 500);
                 var posScroll = $(document).scrollTop();
                 if (posScroll >= $top) {
-                    $(this).addClass(parametres.effet);
+                    $this.addClass(parametres.effet);
                 } else {
-                    $(this).removeClass(parametres.effet);
+                    $this.removeClass(parametres.effet);
                 }
-            }, 10);
+            }, parametres.refreshTime);
         });
     };
     $.fn.navBar = function(options)
@@ -1264,20 +1293,25 @@ $(document).ready(function() {
                 {
                     "vitesse": "300",
                     "position": "100",
-                    "effet": "fixed"
+                    "effet": "fixed",
+                    "div": "",
+                    "refreshTime": "500"
                 };
         var parametres = $.extend(defauts, options);
         return this.each(function() {
-            var posScroll = $(document).scrollTop();
-            if (posScroll >= parametres.position) {
-                $(this).addClass(parametres.effet).fadeIn(parametres.vitesse);
-                $(this).addClass(parametres.effet).fadeIn(parametres.vitesse);
-                $('.barre_cover').fadeIn(parametres.vitesse);
-            } else {
-                $(this).removeClass(parametres.effet);
-                $(this).removeClass(parametres.effet);
-                $('.barre_cover').fadeOut(parametres.vitesse);
-            }
+            var $this = $(this);
+            setInterval(function() {
+                var posScroll = $(document).scrollTop();
+                if (posScroll >= parametres.position) {
+                    $this.addClass(parametres.effet).fadeIn(parametres.vitesse);
+                    $this.addClass(parametres.effet).fadeIn(parametres.vitesse);
+                    $('.barre_cover').fadeIn(parametres.vitesse);
+                } else {
+                    $this.removeClass(parametres.effet);
+                    $this.removeClass(parametres.effet);
+                    $('.barre_cover').fadeOut(parametres.vitesse);
+                }
+            }, parametres.refreshTime);
         });
     };
     $.fn.zoneGauche = function(options)
@@ -1287,17 +1321,18 @@ $(document).ready(function() {
                     "vitesse": "300",
                     "btOuvrir": ".bt_zone-gauche",
                     "zsGauche": ".zone_gauche",
-                    "width": "310px"
+                    "width": "310px",
+                    "event": "click"
                 };
         var datas = $.extend(defauts, options);
         return this.each(function() {
-            $('.bt_zone-gauche').before('<button class="zs_boutton bt_rond bt_effet-g bt_infos bt_close-zone">'
+            $('.bt_zone-gauche').before('<button class="zs_boutton bt_rond fond_blanc adroite bt_close-zone">'
                     + '<i class="icone icon_close" >'
                     + '</i>'
                     + '</button>');
             $(this).before('<div class="zs_gauche-cover">'
                     + '</div>');
-            $(datas.btOuvrir).on('click', function(e) {
+            $(datas.btOuvrir).on(datas.event, function(e) {
                 e.preventDefault();
                 $(datas.zsGauche).animate({marginLeft: datas.width}, datas.vitesse);
                 $('.bt_close-zone').fadeIn(datas.vitesse);
@@ -1313,7 +1348,7 @@ $(document).ready(function() {
                 $('.zs_gauche-cover').fadeOut(datas.vitesse);
                 $('.zone_droite').removeClass('zone_droite-o');
             });
-            $('.zs_gauche-cover').on('click', function(e) {
+            $('.zs_gauche-cover').on(datas.event, function(e) {
                 e.preventDefault();
                 $('.zone_gauche').animate({marginLeft: '-' + datas.width}, datas.vitesse);
                 $('.bt_close-zone').hide();
@@ -1371,31 +1406,40 @@ $(document).ready(function() {
     {
         var defauts =
                 {
-                    "vitesse": "1000",
-                    "refeshTime": "10"
+                    "vitesse": "2000",
+                    "refeshTime": "1000"
                 };
         var datas = $.extend(defauts, options);
         return this.each(function() {
-            $(this).fadeOut(datas.vitesseFadeOut);
+            var $this = $(this);
+            setInterval(function() {
+                $this.fadeToggle(datas.vitesseFadeOut);
+            }, datas.refreshTime);
         });
     };
     $.fn.zsScrollTop = function(options)
     {
         var defauts =
                 {
-                    "vitesse": "400",
-                    "refeshTime": "10",
+                    "vitesse": "fast",
+                    "refreshTime": "1000",
                     "position": "150",
                     "animation": "-=450px"
                 };
         var datas = $.extend(defauts, options);
         return this.each(function() {
-            var posScroll = $(document).scrollTop();
-            if (posScroll >= datas.position) {
-                $(this).fadeIn(datas.vitesse);
-            } else {
-                $(this).fadeOut(datas.vitesse);
-            }
+            var $_this = $(this);
+            setInterval(function() {
+                var posScroll = $(document).scrollTop();
+
+                if (posScroll > datas.position) {
+                    $_this.fadeIn(datas.vitesse);
+                } else {
+                    $_this.hide();
+                }
+
+            }, datas.refreshTime);
+
             $(this).click(function() {
                 $('html, body').animate({
                     scrollTop: datas.animation}, datas.vitesse);
@@ -1407,20 +1451,24 @@ $(document).ready(function() {
     {
         var defauts =
                 {
-                    "vitesse": "400",
-                    "refeshTime": "10",
-                    "animation": "+=450px"
+                    "vitesse": "fast",
+                    "animation": "+=450px",
+                    "refreshTime": "1000"
                 };
         var datas = $.extend(defauts, options);
         return this.each(function() {
-            var posScroll = $(document).scrollTop();
-            var winHeight = $(document).height();
-            var a = winHeight - 300;
-            if (posScroll < a) {
-                $(this).fadeIn(datas.vitesse);
-            } else {
-                $(this).fadeOut(datas.vitesse);
-            }
+            var $__this = $(this);
+            setInterval(function() {
+                var posScroll = $(document).scrollTop();
+                var winHeight = $(document).height();
+                var a = winHeight - 1000;
+                if (posScroll < a) {
+                    $__this.fadeIn(datas.vitesse);
+                } else {
+                    $__this.hide();
+                }
+            }, datas.refreshTime);
+
             $(this).click(function() {
                 $('html, body').animate({
                     scrollTop: datas.animation}, datas.vitesse);
@@ -1428,26 +1476,30 @@ $(document).ready(function() {
             });
         });
     };
-    
+
     $.fn.barChargement = function(options)
     {
         var defauts =
                 {
                     "vitesse": "10000",
-                    "width": "100"
+                    "width": "100",
+                    "duree": "3000"
                 };
         var datas = $.extend(defauts, options);
         return this.each(function() {
-             $(this).css({'width': '1%'});            
-             $(this).animate({width: datas.width + '%'}, datas.vitesse);
+            var $this = $(this);
+            setTimeout(function() {
+                $this.css({'width': '5%'});
+                $this.animate({width: datas.width + '%'}, datas.vitesse);
+            }, datas.duree);
         });
     };
     $.fn.zsAncre = function(options)
     {
         var defauts =
                 {
-                    "vitesse": "300",
-                    "event": "click"
+                    "vitesse": "1000",
+                    "event": "mouseover"
                 };
         var data = $.extend(defauts, options);
         return this.each(function() {
@@ -1482,7 +1534,7 @@ $(document).ready(function() {
         var defauts =
                 {
                     "vitesse": "300",
-                    "event": "click"
+                    "event": "mouseover"
                 };
         var data = $.extend(defauts, options);
         return this.each(function() {
@@ -1493,7 +1545,7 @@ $(document).ready(function() {
                 $(this).parent().prev('.shadow_chat').fadeIn(data.vitesse);
                 $(this).parent().animate({marginRight: '150px', marginBottom: '210px'}, data.vitesse);
             });
-            $('.shadow_chat').on(data.event, function() {
+            $('.shadow_chat').on('click', function() {
                 $(this).next('.zs_chat').animate({marginRight: '-50px', marginBottom: '-40px'}, data.vitesse);
                 $(this).next('.mini_chat').animate({opacity: '0.5'}, data.vitesse);
                 $(this).fadeOut(data.vitesse);
@@ -1553,18 +1605,7 @@ $(document).ready(function() {
                     + 'Erreur 6 caracteres aumoins (1 chiffres, 1 minuscule, 1 majuscule) requis'
                     + '</div>'
                     + '</div>');
-            $('.zs_image').change(function() {
 
-                var ext = ['png', 'jpeg', 'jpg', 'gif', 'bmp'];
-                if ($.inArray($(this).val().split('.').pop().toLowerCase(), ext) === -1) {
-                    $(this).parent().children('#input_image_verify').fadeIn();
-                    $(this).parent().children('#preview').fadeOut();
-                } else {
-                    $(this).parent().children('#input_image_verify').fadeOut();
-                    $(this).parent().children('#preview').fadeIn();
-                    readURL(this);
-                }
-            });
             $('.email').keyup(function() {
                 var val = this.value;
                 var ext = new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$");
@@ -1591,7 +1632,7 @@ $(document).ready(function() {
             });
             $('.text').keyup(function() {
                 var val = this.value;
-                var ext = new RegExp("[A-Za-z].{2,}");
+                var ext = new RegExp("[A-Za-z]");
                 var vide = '';
                 if (ext.test(val)) {
                     $(this).parent().children('#input_text_verify').fadeOut();
@@ -1634,21 +1675,511 @@ $(document).ready(function() {
         var defauts =
                 {
                     "vitesse": "300",
-                    "elementToOpen": "q"
+                    "elementToOpen": "q",
+                    "event": "mouseover"
 
                 };
         var parametres = $.extend(defauts, options);
         return this.each(function() {
-            $(this).click(function() {
+            $(this).on(parametres.event, function() {
                 $(parametres.elementToOpen).fadeToggle(parametres.vitesse);
+            });
+        });
+    };
+
+    $.fn.barreSearch = function(options)
+    {
+        var defauts =
+                {
+                    "vitesse": "300",
+                    "elementToOpen": ".barre_search",
+                    "event": "mouseover"
+
+                };
+        var parametres = $.extend(defauts, options);
+        return this.each(function() {
+            $(this).on(parametres.event, function() {
+                $(parametres.elementToOpen).fadeToggle(parametres.vitesse);
+                $(this).parent('.zs_menu').hide();
+                var $this = $(this);
+                $(parametres.elementToOpen).mouseleave(function(){
+                    $(this).hide();
+                    $this.parent('.zs_menu').fadeIn(parametres.vitesse);
+                });
+            });
+        });
+    };
+
+    $.fn.appendElement = function(options)
+    {
+        var defauts =
+                {
+                    "elementToAdd": "",
+                    "action": "after"
+                };
+        var data = $.extend(defauts, options);
+        return this.each(function() {
+            $(this).append(data.elementToAdd);
+        });
+    };
+
+    $.fn.autoImage = function(options)
+    {
+        var defauts =
+                {
+                    "imageSrc": "NULL",
+                    "vitesse": "1000",
+                    "effet": "fade",
+                    "duree": "10000"
+                };
+        var data = $.extend(defauts, options);
+        return this.each(function() {
+            $(this).children('.auto_image').hide();
+            $(this).children('.image_actif').show();
+
+            var $this = $(this);
+
+            setInterval(function() {
+                var img = $this.children('img').length;
+
+                var nombre = Math.floor((Math.random() * img) + 1);
+
+                $this.children('img').hide();
+                $this.children('img').css({'opacity': '0.4'});
+                $this.children('img').removeClass(data.effet);
+
+                $this.children('img:nth-child(' + nombre + ')').addClass(data.effet);
+                $this.children('img:nth-child(' + nombre + ')').fadeIn(data.vitesse, function() {
+                    $(this).animate({'opacity': '1'}, data.vitesse);
+                });
+
+            }, data.duree);
+        });
+    };
+
+    $.fn.infosBulle = function(options)
+    {
+        var defauts =
+                {
+                    "span1": '<span class="bulle"><i class="pointing arrow_carrot-2up">'
+                            + '</i><i class="icone icon_info_alt"></i>&nbsp;',
+                    "span2": "</span>",
+                    "direction": "bottom"
+                };
+        var data = $.extend(defauts, options);
+        return this.each(function() {
+
+            var infos = $(this).attr('data-infos');
+
+            $(this).append(data.span1 + infos + data.span2);
+
+            var $this = $(this);
+            $this.mouseover(function() {
+                $(this).children('.bulle').css({'display': 'table'});
+            });
+            $this.mouseleave(function() {
+                $(this).children('.bulle').hide();
+            });
+        });
+    };
+
+    $.fn.infosBlock = function(options)
+    {
+        var defauts =
+                {
+                    "option": "click",
+                    "vitesse": 'fast'
+                };
+        var data = $.extend(defauts, options);
+        return this.each(function() {
+            $('.block').append('<i class="pointing arrow_carrot-2up"></i>');
+
+            $(this).on(data.option, function() {
+                $('#' + $(this).data('target')).fadeToggle(data.vitesse);
+            });
+        });
+    };
+
+    $.fn.slideImage = function(options) {
+        var defauts = {
+            "effet": "fade",
+            "vitesse": "slow",
+            "refreshTime": "7000",
+            "duree": "10000"
+        }
+
+        var data = $.extend(defauts, options);
+        return this.each(function() {
+
+            var $this = $(this);
+
+            setInterval(function() {
+
+                var block = $this.children('.image_block').children('.image_item').length;
+
+                var nombre = Math.floor((Math.random() * block) + 1);
+
+                $this.children('.image_block').children('.image_item').hide();
+                $this.children('.image_block').children('.image_item').css({'opacity': '0.4'});
+                $this.children('.image_block').children('.image_item').removeClass(data.effet);
+
+                $this.children('.image_block').children('.image_item:nth-child(' + nombre + ')').addClass(data.effet);
+                $this.children('.image_block').children('.image_item:nth-child(' + nombre + ')').fadeIn(data.vitesse, function() {
+                    $(this).animate({'opacity': '1'}, data.vitesse);
+                });
+
+            }, data.duree);
+
+            var slideIndex = 1;
+            showDivs(slideIndex);
+
+            function plusDivs(n) {
+                showDivs(slideIndex += n);
+
+            }
+
+            function showDivs(n) {
+                var i;
+                var block = $this.children('.image_block').children('.image_item').length;
+                var x = $this.children('.image_block').children('.image_item');
+                if (n > block) {
+                    slideIndex = 1;
+                }
+                if (n < 1) {
+                    slideIndex = block;
+                }
+                for (i = 0; i < block; i++) {
+
+                    $this.children('.image_block').children('.image_item').css({'display': 'none'});
+                    $this.children('.image_block').children('.image_item').css({'opacity': '1'});
+                    $this.children('.image_block').children('.image_item').removeClass(data.effet);
+                }
+
+                var nmbr = slideIndex - 1;
+
+                $this.children('.image_block').children('.image_item:nth-child(' + nmbr + ')').addClass(data.effet);
+                $this.children('.image_block').children('.image_item:nth-child(' + nmbr + ')').css({'display': 'block'});
+                //$this.children('.image_block').children('.image_item:nth-child(' + nmbr + ')').show(function() {
+                //    $(this).animate({'opacity': '1'}, data.vitesse);
+                //});
+
+            }
+
+            $this.children('.control_block').children('.control_next').click(function() {
+                plusDivs(1);
+            });
+            $this.children('.image_block').children('.image_item').click(function() {
+                plusDivs(1);
+            });
+            $this.children('.control_block').children('.control_prev').click(function() {
+                plusDivs(-1);
+            });
+            function myFunction() {
+                plusDivs(1);
+            }
+        });
+    };
+
+    $.fn.btLoading = function(options)
+    {
+        var defauts =
+                {
+                    "option": "click",
+                    "texte": 'Veuillez Patienter...'
+                };
+        var data = $.extend(defauts, options);
+        return this.each(function() {
+            $(this).on(data.option, function() {
+                var $this = $(this);
+                var text = $(this).text();
+                var icone = $this.find('.icone').attr('class');
+                var style = $this.find('.icone').attr('style');
+
+                $(this).text(data.texte);
+                $(this).append('<i class="icone icon_loading tourner agauche" style="margin-right: 3px;"></i>');
+                $(this).css({'text-transform': 'capitalize'});
+
+                setTimeout(function() {
+                    $this.text(text);
+                    if (icone != "") {
+                        $this.append('<i class="agauche ' + icone + '" style="margin-right: 3px;' + style + '"></i>');
+                    }
+                    $this.css({'text-transform': 'uppercase'});
+                }, 6000);
+            });
+        });
+    };
+
+    $.fn.autoSearch = function(options)
+    {
+        var defauts =
+                {
+                    "url": "",
+                    "methode": "POST",
+                    "min_character": "1"
+                };
+        var data = $.extend(defauts, options);
+        return this.each(function() {
+            $(this).next('.search_results').css({'display': 'none'});
+            $(this).keyup(function() {
+                $field = $(this);
+                $field.next('.search_results').html('');
+                $field.next('.search_results').fadeIn();
+
+                if ($field.val().length > data.min_character)
+                {
+                    $.ajax({
+                        type: data.methode,
+                        url: data.url,
+                        data: 'reqs=' + $(this).val(),
+                        beforeSend: function() {
+                            $field.next('.search_results').append('<i class="icone icon_loading search_loader tourner centrer" style="font-size: 3em; left: 47%;"></i>');
+                        },
+                        success: function(data) {
+                            $field.next('.search_results').children('.search_loader').remove();
+                            $field.next('.search_results').html(data);
+                        }
+                    });
+                } else {
+                    $field.next('.search_results').hide();
+                }
+
+            });
+        });
+    };
+
+    $.fn.autoLoad = function(options)
+    {
+        var defauts =
+                {
+                    "loadFile": "",
+                };
+        var data = $.extend(defauts, options);
+        return this.each(function() {
+            $this = $(this);
+
+            setInterval(function() {
+                $this.load(data.loadFile).fadeIn("slow");
+            }, 1000);
+        });
+    };
+
+    $.fn.sendData = function(options)
+    {
+        var defauts =
+                {
+                    "div": '<div class="modale"></div>'
+                            + '<div id="reponse" class="zs_modale scroll scroll_v" role="dialog">'
+                            + '<div class="modale_contenaire" style="background: #333; color:#fff;">'
+                            + '<div class="contenaire" id="valeur"><center><i class="icone icon_loading search_loader tourner3D" style="font-size: 3em; left: 50%;'
+                            + 'transform: translate(-50%, 0);"></i></center><div>'
+                            + '</div>'
+                            + '</div>',
+                    "reponse": '#reponse',
+                    "option": "click"
+                };
+        var data = $.extend(defauts, options);
+        return this.each(function() {
+            $(this).on('submit', function(e) {
+                e.preventDefault();
+
+                var $this = $(this);
+
+                $this.append(data.div);
+                $(data.reponse).hide();
+
+                var erreur = $this.find('.erreur').length;
+                if (erreur === 0) {
+                    $.ajax({
+                        url: $this.attr('action'),
+                        type: $this.attr('method'),
+                        data: $this.serialize(),
+                        //dataType: 'json',
+                        success: function(html) {
+                            $(data.reponse).fadeIn();
+                            $(data.reponse).prev('.modale').fadeIn();
+                            $(data.reponse).find('.search_loader').remove();
+                            $(data.reponse).find('#valeur').text(html).fadeIn();
+
+                            $(data.reponse).prev('.modale').click(function() {
+                                $(this).fadeOut();
+                                $(data.reponse).fadeOut();
+                            });
+                        }
+                    });
+                }
+            });
+        });
+    };
+
+    $.fn.checkForm = function(options)
+    {
+        var defauts =
+                {
+                    "option": "keyup",
+                    "min_character": "2",
+                    "time": "3400",
+                    "div": '<div class="modale"></div>'
+                            + '<div id="reponse" class="zs_modale scroll scroll_v" role="dialog">'
+                            + '<div class="modale_contenaire" style="background: #333; color:#fff;">'
+                            + '<div class="contenaire" id="valeur"><center><i class="icone icon_loading search_loader tourner3D" style="font-size: 3em; left: 50%;'
+                            + 'transform: translate(-50%, 0);"></i></center><div>'
+                            + '</div>'
+                            + '</div>',
+                    "reponse": '#reponse'
+                };
+        var data = $.extend(defauts, options);
+        return this.each(function() {
+
+            $(this).append(data.div);
+            $(data.reponse).hide();
+
+
+            var texte = $(this).find('.check_text');
+
+            texte.after('<div class="zs_alert" id="check_text">'
+                    + '<div class="alert_contenu fond_blanc hover scroll scroll_v">'
+                    + '</div>'
+                    + '</div>');
+            texte.on(data.option, function() {
+                var ext = new RegExp("[A-Za-z]");
+                if ($(this).val().length < data.min_character) {
+                    $(this).next('#check_text').fadeIn();
+                    $(this).next('#check_text').children(".alert_contenu").text('Erreur: le champ est vide ou < 2');
+                    $(this).css({"border-color": "red"});
+                    $(this).next('#check_text').children(".alert_contenu").css({"background": "red"});
+                    $(this).addClass('erreur');
+                } else {
+                    if (ext.test($(this).val())) {
+                        var rr = $(this).val();
+                        $(this).next('#check_text').fadeIn();
+                        $(this).next('#check_text').children(".alert_contenu").text('Validé: ' + rr);
+                        $(this).css({"border-color": "green"});
+                        $(this).next('#check_text').children(".alert_contenu").css({"background": "green"});
+                        $(this).removeClass('erreur');
+                    } else {
+                        $(this).next('#check_text').fadeIn();
+                        $(this).next('#check_text').children(".alert_contenu").text('Erreur: Format non Valide entier requis');
+                        $(this).css({"border-color": "red"});
+                        $(this).next('#check_text').children(".alert_contenu").css({"background": "red"});
+                        $(this).addClass('erreur');
+                    }
+                }
+                var $this = $(this);
+                setTimeout(function() {
+                    $this.next('#check_text').fadeOut();
+                }, data.time);
+            });
+
+            var email = $(this).find('.check_email');
+
+            email.after('<div class="zs_alert" id="check_text">'
+                    + '<div class="alert_contenu fond_blanc hover scroll scroll_v">'
+                    + '</div>'
+                    + '</div>');
+            email.on(data.option, function() {
+                var ext = new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$");
+                if ($(this).val().length < data.min_character) {
+                    $(this).next('#check_text').fadeIn();
+                    $(this).next('#check_text').children(".alert_contenu").text('Erreur: le champ est vide ou < 2');
+                    $(this).css({"border-color": "red"});
+                    $(this).next('#check_text').children(".alert_contenu").css({"background": "red"});
+                    $(this).addClass('erreur');
+                } else {
+                    if (ext.test($(this).val())) {
+                        var rr = $(this).val();
+                        $(this).next('#check_text').fadeIn();
+                        $(this).next('#check_text').children(".alert_contenu").text('Validé: ' + rr);
+                        $(this).css({"border-color": "green"});
+                        $(this).next('#check_text').children(".alert_contenu").css({"background": "green"});
+                        $(this).removeClass('erreur');
+                    } else {
+                        $(this).next('#check_text').fadeIn();
+                        $(this).next('#check_text').children(".alert_contenu").text('Erreur: Format non Valide email requis');
+                        $(this).css({"border-color": "red"});
+                        $(this).next('#check_text').children(".alert_contenu").css({"background": "red"});
+                        $(this).addClass('erreur');
+                    }
+                }
+                var $this = $(this);
+                setTimeout(function() {
+                    $this.next('#check_text').fadeOut();
+                }, data.time);
+            });
+
+            var number = $(this).find('.check_number');
+            var pass = $(this).find('.check_password');
+
+            var image = $(this).find('.check_image');
+
+            image.after('<div class="zs_alert" id="check_text">'
+                    + '<div class="alert_contenu fond_blanc hover scroll scroll_v">'
+                    + '</div>'
+                    + '</div>');
+
+            image.change(function() {
+                var $this = $(this);
+                var ext = ['png', 'jpeg', 'jpg', 'gif', 'bmp'];
+                if ($.inArray($(this).val().split('.').pop().toLowerCase(), ext) === -1) {
+                    $(this).next('#check_text').fadeIn();
+                    $(this).next('#check_text').children(".alert_contenu").text('Erreur: Format non Valide image requis');
+                    $(this).css({"border-color": "red"});
+                    $(this).next('#check_text').children(".alert_contenu").css({"background": "red"});
+                    $(this).parent().children('#preview').fadeOut();
+                    var $this = $(this);
+                    setTimeout(function() {
+                        $this.next('#check_text').fadeOut();
+                    }, data.time);
+                    $(this).addClass('erreur');
+                } else {
+                    $(this).next('#check_text').fadeOut();
+                    $(this).parent().children('#preview').fadeIn();
+                    $(this).css({"border-color": "green"});
+
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $this.parent().children("#preview").attr('src', e.target.result);
+                    };
+                    reader.readAsDataURL(this.files[0]);
+                    $(this).removeClass('erreur');
+                }
+            });
+
+            var $this = $(this);
+
+            $(this).on('submit', function(e) {
+                var erreur = $this.find('.erreur').length;
+                if (erreur !== 0) {
+                    e.preventDefault();
+                    $(data.reponse).fadeIn();
+                    $(data.reponse).prev('.modale').fadeIn();
+                    $(data.reponse).find('#valeur').text('Veuillez Remplir tous les champs obligatoires en respectant les formats requis, le nombre de caractère > 2 ainsi que les combinaisons de mots ...');
+
+                    $(data.reponse).prev('.modale').click(function() {
+                        $(this).fadeOut();
+                        $(data.reponse).fadeOut();
+                    });
+                }
             });
         });
     };
 
 })(jQuery);
 
-
+window.onbeforeunload = function() {
+    return "";
+};
 $(document).ready(function() {
+    $('.auto_search').autoSearch({
+        "url": "test.php",
+        "methode": "POST"
+    });
+    $('.send_data').sendData();
+    $('.check_form').checkForm();
+    $('.bt_loading').btLoading();
+    $('.slide').slideImage();
+    $('[data-block]').infosBlock();
+    $('.infos_bulle').infosBulle();
     $('.centrer_texte').css({'text-align': 'center'});
     $('a').hoverFade();
     $('h1').hoverFade();
@@ -1656,16 +2187,25 @@ $(document).ready(function() {
         "vitesse": "fast",
         "elementToOpen": ".barre_menu"
     });
-    $('.barre_navigation').navBar();
-    $('.barre_navigation').navbarAffix();
     $('[data-progress]').progressBar();
+    $('.barre').barChargement();
     $('.show_modale').autoModal();
     $('.zs_modale').fenetreModal();
-    $('[data-onglet]').onglets();
-    $('.zone_gauche').zoneGauche();
-    $(".alert_close").closeObject();
+
+    $('[data-onglet]').onglets({
+        "vitesse": "300",
+        "fontWeight": "bolder",
+        "normatFont": "normal",
+        "elementChild": ".corps-onglet",
+        "event": "mouseover"
+    });
+    $('.zone_gauche').zoneGauche({"event": "mouseover"
+    });
+    $(".alert_close").closeObject({
+        "vitesseFadeOut": "300",
+        "event": "mouseover"
+    });
     $('.show_modale').autoModal();
-    ///$('.modale_back').autoModal();
     $(".close_accord").closeObject();
     $(".bt_share").zsFadeToggle({
         "vitesse": "slow",
@@ -1684,40 +2224,50 @@ $(document).ready(function() {
         "vitesse": "fast",
         "elementToOpen": ".groupe_element"
     });
-    $('.clignote').autoClignote({
-        "vitesse": "1000",
-        "refeshTime": "10"
-    });
     $('.to_bottom').zsScrollBottom({
-        "vitesse": "400",
-        "refeshTime": "10",
         "position": "150",
         "animation": "+=450px"
     });
-    $('.to_top').zsScrollTop({
-        "vitesse": "400",
-        "refeshTime": "10",
-        "position": "150",
+    $('.to_top').zsScrollTop({"position": "150",
         "animation": "0"
     });
-
-//    setInterval(function() {
-//        $('.ch_barre').barChargement({
-//            "vitesse": "2500",
-//            "width": "100"
-//        });
-//    }, 10000);
-
+    $('.transparence').appendElement({
+        "elementToAdd": '<div class="barre_cover"></div>'
+    });
     $('[data-accordeon]').accordeonMenu();
-
     $('.cards_image').imageHover();
     $('.ancre').zsAncre({
-        "vitesse": "300",
         "event": "click"
     });
     $('.zs_chat').zsChat({
         "vitesse": "300",
-        "event": "click"
+        "event": "mouseover"
+    });
+    $('.clignote').autoClignote({
+    });
+    $('.fixe').navBar({
+        "vitesse": "300",
+        "position": "100",
+        "effet": "fixed",
+        "div": "barre_cover"
+    });
+    $('.transparence').navBar({
+        "vitesse": "300",
+        "position": "100",
+        "effet": "transparent",
+        "div": "barre_cover"
+    });
+    $('[data-affix]').navbarAffix({
+        "vitesse": "300",
+        "effet": "fixed",
+        "refreshTime": "500"
+    });
+    $('.image_auto').autoImage({
+        
+    });
+    $('.open_search').barreSearch({
+        "vitesse": "300",
+        "elementToOpen": ".barre_search",
+        "event": "mouseover"
     });
 });
-                                 
