@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!--
+/* 
+    Created on : 20 mai 2017, 05:53:05
+    Author     : Frank Donald Fontcha
+    */
+-->
+<style>
+    #docloader{
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 9999;
+        background: skyblue;
+    }
+
+    /*Preloader*/
+    #loading{
+        background: linear-gradient(45deg, rgba(0,0,0, 0.9),rgba(0,0,0, 0.9)) ;
+        background-size: 100px 100px 100px;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left:0;
+        bottom: 0;
+        z-index: 999999;
+    }
+    #loading-center{
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    #loading-center-absolute {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        height: 50px;
+        width: 50px;
+        margin-top: -25px;
+        margin-left: -25px;
+        -ms-transform: rotate(45deg); 
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg); 
+        -webkit-animation: loading-center-absolute 1.5s infinite;
+        animation: loading-center-absolute 1.5s infinite;
+
+    }
+    .object{
+        width: 25px;
+        height: 25px;
+        background-color: #FFF;
+        float: left;
+
+    }
+
+
+    #object_one {
+        -webkit-animation: object_one 1.5s infinite;
+        animation: object_one 1.5s infinite;
+    }
+    #object_two {
+        -webkit-animation: object_two 1.5s infinite;
+        animation: object_two 1.5s infinite;
+    }
+    #object_three {
+        -webkit-animation: object_three 1.5s infinite;
+        animation: object_three 1.5s infinite;
+    }
+    #object_four {
+        -webkit-animation: object_four 1.5s infinite;
+        animation: object_four 1.5s infinite;
+    }
+
+
+    @-webkit-keyframes loading-center-absolute {
+        100% { -webkit-transform: rotate(-45deg); }
+
+    }
+
+    @keyframes loading-center-absolute {
+        100% { 
+            transform:  rotate(-45deg);
+            -webkit-transform:  rotate(-45deg);
+        }
+    }
+
+
+
+    @-webkit-keyframes object_one {
+        25% { -webkit-transform: translate(0,-50px) rotate(-180deg); }
+        100% { -webkit-transform: translate(0,0) rotate(-180deg); }
+
+    }
+
+    @keyframes object_one {
+        25% { 
+            transform: translate(0,-50px) rotate(-180deg);
+            -webkit-transform: translate(0,-50px) rotate(-180deg);
+        } 
+        100% { 
+            transform: translate(0,0) rotate(-180deg);
+            -webkit-transform: translate(0,0) rotate(-180deg);
+        }
+    }
+
+
+    @-webkit-keyframes object_two {
+        25% { -webkit-transform: translate(50px,0) rotate(-180deg); }
+        100% { -webkit-transform: translate(0,0) rotate(-180deg); }
+    }
+
+    @keyframes object_two {
+        25% { 
+            transform: translate(50px,0) rotate(-180deg);
+            -webkit-transform: translate(50px,0) rotate(-180deg);
+        } 
+        100% { 
+            transform: translate(0,0) rotate(-180deg);
+            -webkit-transform: translate(0,0) rotate(-180deg);
+        }
+    }
+
+    @-webkit-keyframes object_three {
+        25% { -webkit-transform: translate(-50px,0) rotate(-180deg); }
+        100% { -webkit-transform: translate(0,0) rotate(-180deg); }
+    }
+
+    @keyframes object_three {
+        25% { 
+            transform:  translate(-50px,0) rotate(-180deg);
+            -webkit-transform:  translate(-50px,0) rotate(-180deg);
+        } 
+        100% { 
+            transform: translate(0,0) rotate(-180deg);
+            -webkit-transform: rtranslate(0,0) rotate(-180deg);
+        }
+    }
+
+
+    @-webkit-keyframes object_four {
+        25% { -webkit-transform: translate(0,50px) rotate(-180deg); }
+        100% { -webkit-transform: translate(0,0) rotate(-180deg); }
+    }
+
+    @keyframes object_four {
+        25% { 
+            transform: translate(0,50px) rotate(-180deg); 
+            -webkit-transform: translate(0,50px) rotate(-180deg);  
+        } 
+        100% { 
+            transform: translate(0,0) rotate(-180deg);
+            -webkit-transform: translate(0,0) rotate(-180deg);
+        }
+    }
+    /*End off Preloader*/
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="./Apercu/datatables/js/jquery.dataTables.min.js"></script>
+<script src="./Apercu/datatables-plugins/dataTables.bootstrap.min.js"></script>
+<script src="./Apercu/datatables-responsive/dataTables.responsive.js"></script>
+
+<div id="doc">
+    <div id="docloader">
+        <div id="loading">
+            <div id="loading-center">
+                <div id="loading-center-absolute">
+                    <div class="object" id="object_one"></div>
+                    <div class="object" id="object_two"></div>
+                    <div class="object" id="object_three"></div>
+                    <div class="object" id="object_four"></div>
+                </div>
+            </div>
+        </div>
+    </div>      
+</div>
+<script>
+    /*$.ajax({
+        type: 'GET',
+        url: "index.php",
+        success: function (data)
+        {
+            $('#doc').html(data);
+        }
+    });*/
+    //$('#doc').load('index.php');
+    window.location.href="http://zoneplus.hol.es/FSPT/";
+    $('#dataTables-example').DataTable({
+        responsive: false
+    });
+    $('#dataTables-example_wrapper').removeClass('form-inline');
+</script>
+
